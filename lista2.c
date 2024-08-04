@@ -673,3 +673,169 @@ num=num*x;
 printf("O fatorial do número é %d",num);
 }
 #endif // ex19
+
+
+#ifdef ex20
+/*Receba a quantidade de idades de K indivíduos. K representa essa quantidade e deve ser digitada pelo usuário.
+A variável Idade armazena cada uma das K idades digitadas. Calcule e mostre a somatória dessas idades.*/
+
+main(){
+int K=0,cont=0,idade[20],soma=0;
+setlocale(LC_ALL,"");
+
+do{
+printf("Digite a quantidade de indivíduos\n");
+scanf("%d",&K);
+if(K<=0){
+printf("Valor inválido! Digite um número positivo\n");}
+}while(K<=0);
+for(cont=0;cont<K;cont++){
+do{
+printf("Digite a idade do [%dº] indivíduo\n",cont+1);
+scanf("%d",&idade[cont]);
+if(K<=0){
+printf("Valor inválido! Digite um número positivo\n");}
+}while(K<=0);
+soma+=idade[cont];
+}
+printf("A soma das idade é %d\n",soma);
+}
+
+#endif // ex20
+
+#ifdef ex21
+/*Receba K números. Exiba a quantidade de números pares negativos e quantas vezes o número zero foi digitado.
+Obs1: K representa a quantidade de números digitados pelo usuário.
+Obs2: A variável Num representa cada número digitado pelo usuário.*/
+
+main(){
+int K=0,zero=0,negatpar=0,num=0,cont=0;
+setlocale(LC_ALL,"");
+
+printf("Digite a quantidade de números\n");
+scanf("%d",&K);
+for(cont=0;cont<K;cont++){
+printf("Digite o [%dº] número\n",cont+1);
+scanf("%d",&num);
+if(num==0){
+zero++;
+}
+if(num<0 && num%2==0){
+negatpar++;
+}
+}
+printf("foram digiitados %d números pares negativos e %d zeros\n",negatpar,zero);
+}
+#endif //ex21
+
+#ifdef ex22
+/*Receba K números positivos. Cada número recebido deverá ser armazenado na variável Num e a variável K representa a quantidade de números solicitada pelo usuário.
+Exiba a quantidade de números divisíveis por 2 e 3 ao mesmo tempo.*/
+
+main(){
+int K,num=0,cont=0,num2e3=0;
+setlocale(LC_ALL,"");
+
+printf("Digite a quantidade de números\n");
+scanf("%d",&K);
+for(cont=0;cont<K;cont++){
+do{
+printf("Digite o [%dº] número positivo\n",cont+1);
+scanf("%d",&num);
+if(num<0){
+printf("Apenas números positivos!\n");
+}
+}while(num<0);
+if(num%2==0 && num%3==0){
+num2e3++;
+}
+}
+printf("Foram digitados %d números divisíveis por dois e três\n",num2e3);
+}
+#endif // ex22
+
+#ifdef ex23
+/*Receba via teclado um número X, onde este número representa a quantidade de termos que o usuário deseja. H representa cada um desses números, calcule o produto dos X números.
+OBS: H deve ser maior ou igual a 15.*/
+main(){
+int X,H[20],cont=0,produt=1;
+setlocale(LC_ALL,"");
+
+printf("Digite a quantidade de números\n");
+scanf("%d",&X);
+for(cont=0;cont<X;cont++){
+do{
+printf("Digite o [%dº] número\n",cont+1);
+scanf("%d",&H[cont]);
+if(H[cont]<15){
+printf("O número precisa ser maior ou igual a 15\n");
+}
+produt=produt*H[cont];
+}while(H[cont]<15);
+}
+printf("O produto dos valores digitados é %d",produt);
+}
+#endif // ex23
+
+#ifdef ex24
+/*Receba a quantidade de pesos de N pessoas. N representa essa quantidade e deve ser digitada pelo usuário.
+A variável Peso armazena cada um do N pesos digitados. Calcule e mostre a média dos pesos digitados.*/
+
+main(){
+int N,cont;
+float peso,soma;
+
+setlocale(LC_ALL,"");
+do{
+printf("Digite a quantidade de pessoas\n");
+scanf("%d",&N);
+if(N<=0){
+printf("Valor inválido! Digite um número maior que zero\n");
+}
+}while(N<=0);
+
+for(cont=0;cont<N;cont++){
+do{
+printf("Digite o peso (em Kg) da [%dº] pessoa\n",cont+1);
+scanf("%f",&peso);
+if(peso<=0){
+printf("Valor inválido! Digite um número maior que zero\n");
+}
+soma=peso+soma;
+}while(peso<=0);
+}
+soma=soma/N;
+printf("A média dos pesos são: %2.f",soma);
+}
+
+#endif // ex24
+
+#ifdef ex25
+/*Mostre na tela a soma e o produto dos K primeiros naturais.
+OBS: K representa a quantidade de números naturais solicitado via teclado pelo usuário.
+Os números naturais deverão ser gerados pelo programador. 1, 2, 3, 4, 5, 6, ....*/
+
+main(){
+int cont,K=0,produt,nume[10],soma;
+
+setlocale(LC_ALL,"");
+do{
+printf("Digite o a quantidade de número naturais\n");
+scanf("%d",K);
+if(K<=0){
+printf("Valor inválido! Digite um número maior que zero\n");
+}
+}while(K<=0);
+
+for(cont=0;cont<K;cont++){
+nume[cont]=nume[cont]+1;
+soma=nume[cont]+soma;
+produt=nume[cont]*produt;
+printf("[%dº] número natural:%d\n",cont+1,nume[cont]);
+}
+printf("A soma dos numeros naturais é %d\n",soma);
+printf("O produto dos numeros naturais é %d\n",produt);
+
+}
+
+#endif // ex25
