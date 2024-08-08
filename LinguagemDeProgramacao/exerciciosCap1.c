@@ -60,4 +60,27 @@ return 0;
 
                         //==========//
 
-                        
+#ifdef ex3
+/*Escreva um programa que determine o menor multiplo de um numero inteiro. Este multiplo deve ser maior que o limite minimo recebido. Recebe os 2 numeros via teclado.
+Ex: menor multiplo de 13 maior que 100. Resultado: 104.*/
+int main(void){
+int num,limite,cont,mult;
+
+setlocale(LC_ALL,"");
+printf("Digite um numero inteiro qualquer\n");
+scanf("%d",&num);
+
+printf("Digite um valor qualquer\n");
+scanf("%d",&limite);
+
+for(cont=1;mult<limite;cont++){
+mult=num*cont;
+}
+printf("O menor multiplo de %d e maior que %d é %d\n",num,limite,mult);
+
+return 0;
+}
+
+
+#endif // ex3
+
