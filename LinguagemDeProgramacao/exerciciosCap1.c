@@ -81,6 +81,58 @@ printf("O menor multiplo de %d e maior que %d é %d\n",num,limite,mult);
 return 0;
 }
 
-
 #endif // ex3
+
+#ifdef ex4
+/*Escreva um programa que permute o conteúdo de duas variáveis sem utilizar uma variável auxiliar.*/
+int main(void)
+{
+    int A=10,B=15;
+    printf("A=%d B=%d\n",A,B);
+
+    A=A+B;
+    printf("A=%d B=%d\n",A,B);
+
+    B=B+A;
+    printf("A=%d B=%d\n",A,B);
+
+    A=B-A;
+    printf("A=%d B=%d\n",A,B);
+
+    B=B-2*A;
+    printf("A=%d B=%d\n",A,B);
+    return 0;
+}
+#endif // ex4
+
+                        //==========//
+
+
+#ifdef ex5
+/*Faça um programa para ler um numero inteiro, positivo de tres digitos, e gerar outro número formado pelos dígitos invertidos do número lido.
+Ex:   NúmeroLido = 123
+      NúmeroGerado = 321*/
+int main(void){
+int num1,num2;
+
+do{
+setlocale(LC_ALL,"");
+printf("Digite um número positivo de três digitos\n");
+scanf("%d",&num1);
+if(num1<=99 ||num1<0 ||num1>999){
+printf("O número precisa ser maio que zero e com três digitos\n");
+}
+}while(num1<=99 ||num1<0 ||num1>999);
+
+while(num1!=0){
+num2=num1%10;
+num1/=10;
+printf("%d",num2);
+}
+
+return 0;
+}
+
+#endif // ex5
+
 
