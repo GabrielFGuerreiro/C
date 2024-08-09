@@ -70,3 +70,65 @@ main()
 
 
 #endif // ex1
+
+#ifdef ex2
+/*Escreva um programa para adivinhar um numero entre 1 e 99 que o usuario pensou.
+Digite via teclado os simbolos =, > ou < a cada pergunta. Utilize o comando if-else.*/
+
+main(){
+
+int num1=1,num99=99,media;
+char simbo,resp;
+
+do{
+setlocale(LC_ALL,"");
+
+printf("=====================================================================\n");
+printf("Pense em um número entre 1 e 99 para que eu possa adivinhar!\nUtilize > caso seja maior, < para menor e = se eu adivinhei o número!\n");
+printf("=====================================================================\n\n");
+
+while(simbo!='=')
+{
+printf("O seu número é maior, menor ou igual a %d?\n",media=(num1+num99)/2);
+scanf("%c",&simbo);
+
+if(simbo=='>'){
+num1=media;
+media=(num1+num99)/2;
+getchar();
+
+}
+else if(simbo=='<')
+{
+num99=media;
+media=(num1+num99)/2;
+getchar();
+
+}
+}
+
+printf("Acertei!!!\n");
+
+ do
+        {
+            printf("Deseja continuar?(S/N)\n");
+            scanf(" %c",&resp);
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+        printf("Até logo!\n");
+    }
+    while(resp=='S' || resp=='s');
+}
+
+#endif // ex2
