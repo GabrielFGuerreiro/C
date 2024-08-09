@@ -211,3 +211,56 @@ printf("=====================================================================\n\
 
 
 #endif // ex3
+
+#ifdef ex4
+/*Escreva um programa que receba via teclado numeros inteiros positivos.
+Quando o numero digitado for negativo o programa deve parar e calcula a media dos valores positivos digitados*/
+
+main(){
+
+    int num,cont;
+    float media;
+    char resp;
+
+    setlocale(LC_ALL,"");
+
+    do
+    {
+        while(num>0)
+        {
+            printf("Digite um número inteiro positivo\n");
+            scanf("%d",&num);
+
+            if(num>0)
+            {
+                num=num+num;
+                cont++;
+            }
+            else
+                printf("Valor negativo digitado...\nCalculando a média dos valores anteriores\n");
+        }
+        media=num/cont;
+        printf("A media dos números positivos é: %f",media);
+
+        do
+        {
+            printf("Deseja continuar?(S/N)\n");
+            scanf(" %c",&resp);
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("Até logo!\n");
+    }
+    while(resp=='S' || resp=='s');
+}
+#endif // ex4
