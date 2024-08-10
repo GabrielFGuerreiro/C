@@ -371,3 +371,134 @@ char recomecar()
     return resp;
 }
 #endif // ex4
+
+#ifdef ex5
+/*Escreva um programa que receba n valores inteiros via teclado na funcao main().
+Faca uma calculadora com as 4 operacoes aritmeticas.(utilize o comando switch).
+As operacoes aritmeticas devem ser funcoes. O resultado acumulado deve ser  mostrado na funcao main().*/
+int soma(int rsoma,int num2);
+int sub(int rsub,int num2);
+int mult(int rmult,int num2);
+float divi(int rdivi,int num2);
+char recomecar();
+
+main(){
+int num1,num2,result,rsoma,rsub,rmult,rdivi,cont=0;
+float resultd;
+char conta,resp;
+
+    do
+    {
+            setlocale(LC_ALL,"");
+            cont++;
+            printf("--------------------------\nConta nº [%d]\n",cont);
+            printf("Digite 000 se quiser parar\n--------------------------\n");
+            printf("Digite o [1º] valor:");
+            scanf("%d",&num1);
+            result=num1;
+            resultd=num1;
+            if(num1==000)
+            {
+            continue;
+            }
+
+            while(1){
+            cont++;
+            printf("Digite o [%dº] valor:",cont);
+            scanf("%d",&num2);
+            if(num2==000)
+            {
+            break;
+            }
+            do{
+            printf("\nQual operação será realizada?\nSoma(+) Subtração(-) Multiplicação(*) Divisão(/)\n");
+            scanf(" %c",&conta);
+            if(conta!='+' && conta!='-' && conta!='*' && conta!='/'){
+            printf("ERRO\n");
+            }
+            }while(conta!='+' && conta!='-' && conta!='*' && conta!='/');
+            switch(conta){
+            case '+':
+                printf("=%d\n",result=soma(result,num2));
+                resultd=result;
+            break;
+
+            case '-':
+                printf("=%d\n",result=sub(result,num2));
+                resultd=result;
+            break;
+
+            case '*':
+                printf("=%d\n",result=mult(result,num2));
+                resultd=result;
+            break;
+
+            case '/':
+                printf("=%.2f\n",resultd=divi(resultd,num2));
+                result=resultd;
+            break;
+            }
+            printf("\n------------\nConta nº [%d]\n------------\n",cont);
+                }
+
+
+resp=recomecar();
+if(resp=='S' || resp=='s'){
+cont=0;
+
+}
+}while(resp=='S' || resp=='s');
+}
+
+int soma(int x,int y){
+x=x+y;
+return x;
+}
+
+
+int sub(int x,int y){
+x=x-y;
+
+return x;
+}
+
+
+int mult(int x,int y){
+x=x*y;
+
+return x;
+}
+
+
+float divi(int x,int y){
+float z;
+z=(float)x/(float)y;
+
+return z;
+}
+
+char recomecar()
+{
+    char resp;
+    do
+    {
+        printf("\nDeseja recomeçar?(S/N)\n");
+        resp=getche();
+        if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+        {
+            printf("\nERRO\n");
+        }
+    }
+    while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+    if(resp=='S' || resp=='s')
+    {
+        system("cls");
+    }
+    else
+        printf("\nAté logo!\n");
+
+    return resp;
+}
+#endif // ex5
