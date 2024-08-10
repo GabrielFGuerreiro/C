@@ -275,3 +275,99 @@ char recomecar()
 }
 
 #endif // exe3
+
+#ifdef ex4
+/*Reescreva o programa do exercicio anterior para receber via teclado n valores. Os n valores nao sao definidos previamente.*/
+
+int soma(int rsoma,int num2);
+int sub(int rsub,int num2);
+int mult(int rmult,int num2);
+float divi(int rdivi,int num2);
+char recomecar();
+
+main(){
+int num1,num2,rsoma,rsub,rmult,cont=1;
+float rdivi;
+char resp;
+
+    do
+    {
+    setlocale(LC_ALL,"");
+    printf("--------------------------\nConta nº [%d]\n",cont);
+    printf("Digite 000 se quiser parar\n--------------------------\n");
+    printf("Digite o [%dº] valor:",cont);
+    scanf("%d",&num1);
+    rsoma=num1;
+    rsub=num1;
+    rmult=num1;
+    rdivi=num1;
+        while(1){
+            cont++;
+            printf("Digite o [%dº] valor:",cont);
+            scanf("%d",&num2);
+            if(num2==000)
+            {
+            break;
+            }
+            printf("\nSoma:%d\nSubtração:%d\nMultiplicação:%d\nDivisão:%.2f\n\n",rsoma=soma(rsoma,num2),rsub=sub(rsub,num2),rmult=mult(rmult,num2),rdivi=divi(rdivi,num2));
+            printf("--------------------------\nConta nº [%d]\n",cont);
+            printf("Digite 000 se quiser parar\n--------------------------\n");
+                }
+cont=1;
+resp=recomecar();
+
+}while(resp=='S' || resp=='s');
+}
+
+int soma(int x,int y){
+x=x+y;
+return x;
+}
+
+
+int sub(int x,int y){
+x=x-y;
+
+return x;
+}
+
+
+int mult(int x,int y){
+x=x*y;
+
+return x;
+}
+
+
+float divi(int x,int y){
+float z;
+z=(float)x/(float)y;
+
+return z;
+}
+
+char recomecar()
+{
+    char resp;
+    do
+    {
+        printf("\nDeseja recomeçar?(S/N)\n");
+        resp=getche();
+        if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+        {
+            printf("ERRO\n");
+        }
+    }
+    while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+    if(resp=='S' || resp=='s')
+    {
+        system("cls");
+    }
+    else
+        printf("Até logo!\n");
+
+    return resp;
+}
+#endif // ex4
