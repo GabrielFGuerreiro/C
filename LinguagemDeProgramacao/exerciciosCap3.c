@@ -189,3 +189,89 @@ char recomecar()
 }
 
 #endif // ex2
+
+#ifdef ex3
+/*Escreva um programa que receba na funcao main() 2 valores inteiro. Escreva uma funcao para cada operacoes aritmeticas e passe como parametro os 2
+valores recebidos na funcao main(). Retorne os resultados usando o comando return e imprima os 4 resultados no video na funcao main().*/
+
+int somar(int num1,int num2);
+int subtrair(int num1,int num2);
+int multiplicar(int num1,int num2);
+float dividir(int num1,int num2);
+char recomecar();
+
+main(){
+int num1,num2,soma,mult,sub;
+float divi;
+char resp;
+
+do{
+setlocale(LC_ALL,"");
+printf("Digite dois valores\n");
+scanf("%d %d",&num1,&num2);
+
+soma=somar(num1,num2);
+sub=subtrair(num1,num2);
+mult=multiplicar(num1,num2);
+divi=dividir(num1,num2);
+
+printf("\nSoma:%d\nSubtração:%d\nMultiplicação:%d\nDivisão:%.1f\n",soma,sub,mult,divi);
+
+resp=recomecar();
+
+}while(resp=='S' || resp=='s');
+}
+
+int somar(int x,int y){
+x=x+y;
+return x;
+}
+
+
+int subtrair(int x,int y){
+x=x-y;
+
+return x;
+}
+
+
+int multiplicar(int x,int y){
+x=x*y;
+
+return x;
+}
+
+
+float dividir(int x,int y){
+float z;
+z=(float)x/(float)y;
+
+return z;
+}
+
+char recomecar()
+{
+    char resp;
+    do
+    {
+        printf("\nDeseja recomeçar?(S/N)\n");
+        resp=getche();
+        if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+        {
+            printf("ERRO\n");
+        }
+    }
+    while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+    if(resp=='S' || resp=='s')
+    {
+        system("cls");
+    }
+    else
+        printf("Até logo!\n");
+
+    return resp;
+}
+
+#endif // exe3
