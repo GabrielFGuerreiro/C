@@ -163,3 +163,79 @@ int main(void){
 }
 
 #endif // ex2
+
+#ifdef ex3
+/*Defina 2 vetores bidimensionais do tipo int de 2x3. Escreva um programa que recebe os dados via teclado para esses 2 vetores.
+Usando o operador adicao "+", some os elementos de mesmo indice dos 2 vetores e guarde o resultado em um 3. vetor.
+Imprima na tela o indice, os valores e o resultado dos 6 elementos dos vetores.*/
+
+
+int main(){
+
+int vetor1[2][3],vetor2[2][3],vetorf[2][3],l=0,c=0;
+char resp;
+
+do{
+        printf("==============\nPrimeiro Vetor\n==============\n");
+        for(l=0;l<=1;l++)
+        {
+            for(c=0;c<=2;c++)
+            {
+                setlocale(LC_ALL,"");
+                printf("Digite o valor da posição de linha %d e coluna %d\n",l+1,c+1);
+                scanf("%d",&vetor1[l][c]);
+            }
+        }
+
+        system("cls");
+        printf("=============\nSegundo Vetor\n=============\n");
+        for(l=0;l<2;l++)
+        {
+            for(c=0;c<3;c++)
+            {
+                setlocale(LC_ALL,"");
+                printf("Digite o valor da posição linha %d e coluna %d\n",l+1,c+1);
+                scanf("%d",&vetor2[l][c]);
+            }
+        }
+
+        system("cls");
+        for(l=0;l<2;l++)
+        {
+            for(c=0;c<3;c++)
+            {
+            vetorf[l][c]=vetor1[l][c]*vetor2[l][c];
+            }
+        }
+
+
+          for(l=0;l<2;l++)
+        {
+            for(c=0;c<3;c++)
+                {
+                 printf("Valor na posição[%d,%d]=%d\n\n",l+1,c+1,vetorf[l][c]);
+                }
+        }
+
+        do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getche();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+    }while(resp=='S' || resp=='s');
+}
+#endif // ex3
