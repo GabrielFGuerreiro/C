@@ -239,3 +239,88 @@ do{
     }while(resp=='S' || resp=='s');
 }
 #endif // ex3
+
+
+#ifdef ex4
+/*Escreva um programa para receber via teclado em vetores 3 int, 3 long, 3 unsigned, 3 float e 3 double
+e imprima-os no video no seguinte formato:
+
+            10        20        30        40        50
+    12345678901234567890123456789012345678901234567890
+      int                 long                unsigned
+                float               double
+      int                 long                unsigned
+                float               double
+      int                 long                unsigned
+                float               double   */
+
+int main(){
+
+int vetnum[3],p,v;
+long vetl[3];
+unsigned vetu[3];
+float vetf[3];
+double vetd[3];
+char resp;
+
+    do
+    {
+        for(v=0;v<5;v++)
+        {
+            for(p=0;p<3;p++)
+            {
+                setlocale(LC_ALL,"");
+                printf("Digite um número qualquer\n");
+                if(v==0)
+                {
+                    scanf("%d",&vetnum[p]);
+                }
+                else if(v==1)
+                {
+                    scanf("%ld",&vetl[p]);
+                }
+                else if(v==2)
+                {
+                    scanf("%u",&vetu[p]);
+                }
+                else if(v==3)
+                {
+                    scanf("%f",&vetf[p]);
+                }
+                else
+                {
+                    scanf("%lf",&vetd[p]);
+                }
+            }
+        }
+
+    printf("\n        10        20        30        40        50\n");
+    printf("12345678901234567890123456789012345678901234567890\n");
+    for(p=0;p<3;p++){
+    printf("  %-3d                 %-10ld          %-5u\n",vetnum[p],vetl[p],vetu[p]);
+    printf("            %-8.1f            %-8.1lf\n",vetf[p],vetd[p]);
+    }
+    printf("\n");
+        do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getche();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+    }
+    while(resp=='S' || resp=='s');
+}
+#endif // ex4
