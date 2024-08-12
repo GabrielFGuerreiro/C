@@ -324,3 +324,64 @@ char resp;
     while(resp=='S' || resp=='s');
 }
 #endif // ex4
+
+
+#ifdef ex5
+/*Receba via teclado 10 valores inteiros e ordene por ordem crescente assim que sao digitados.
+Guarde-os em um vetor. Mostre ao final os valores ordenados.*/
+int main(){
+int vet[10],a,num,cont=0;
+char resp;
+
+do{
+     for(cont=0;cont<10;cont++)
+        {
+            setlocale(LC_ALL,"");
+            printf("Digite o número %d do vetor\n",cont+1);
+            scanf("%d",&vet[cont]);
+        }
+
+        for(cont=0;cont<10;cont++)
+        {
+            for(a=0;a<10;a++)
+            {
+               if(vet[cont]<vet[a])
+                {
+                num=vet[cont];
+                vet[cont]=vet[a];
+                vet[a]=num;
+                }
+            }
+        }
+
+        printf("Vetor em ordem={");
+        for(cont=0;cont<10;cont++)
+        {
+        printf("%d,",vet[cont]);
+        }
+        printf("}\n");
+
+        do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getche();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+            cont=0;
+        }
+        else
+            printf("\nAté logo!\n");
+
+    }
+    while(resp=='S' || resp=='s');
+}
+#endif // ex5
