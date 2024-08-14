@@ -343,3 +343,73 @@ char resp;
             return resp;
 }
 #endif // ex4
+
+
+#ifdef ex5
+/*Escreva um programa que receba uma string na funcao main().
+Faca uma funcao que calcula o comprimento de uma string recebida via teclado.Mostre o valor do comprimento na funcao main().
+(Declare o vetor como variavel global)*/
+
+int compriment();
+char recomeca();
+
+char stringvet[10];
+
+int main(){
+
+char resp;
+int cont=0;
+
+do{
+
+    setlocale(LC_ALL,"");
+    printf("Digite uma string\n");
+    scanf("%s",stringvet);
+
+cont=compriment();
+
+printf("A string possui %d caracteres de comprimento\n\n",cont);
+
+resp=recomeca();
+
+}while(resp=='S' || resp=='s');
+}
+
+
+int compriment()
+{
+int cont;
+
+    for(cont=0;stringvet[cont]!='\0';cont++){}
+
+    return cont;
+}
+
+
+
+char recomeca()
+{
+char resp;
+    do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+            return resp;
+}
+
+#endif // ex5
