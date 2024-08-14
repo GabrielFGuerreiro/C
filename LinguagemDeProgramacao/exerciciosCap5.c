@@ -101,3 +101,120 @@ char resp;
 
 
 #endif // ex1
+
+
+#ifdef ex2
+
+
+/*Escreva um programa para receber 5 nomes, com até 7 caracteres, via teclado e imprima-os no video no seguinte formato:
+(Declare os 5 vetores como variaveis globais)
+            10        20        30        40        50
+    12345678901234567890123456789012345678901234567890
+      nome1                                   nome5
+                nome2               nome4
+                          nome3*/
+char recomeca();
+char nome1[8],nome2[8],nome3[8],nome4[8],nome5[8];
+int main(){
+
+int cont=0,x;
+char resp;
+
+do
+{
+    do
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite o [1º] nome com até sete caracteres\n");
+        scanf("%s",nome1);
+
+        for(cont=0;nome1[cont]!='\0';cont++){}
+
+    }
+    while(cont>7);
+
+    do
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite o [2º] nome com até sete caracteres\n");
+        scanf("%s",nome2);
+
+        for(cont=0;nome2[cont]!='\0';cont++){}
+
+    }
+    while(cont>7);
+
+    do
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite o [3º] nome com até sete caracteres\n");
+        scanf("%s",nome3);
+
+        for(cont=0;nome3[cont]!='\0';cont++){}
+
+    }
+    while(cont>7);
+
+        do
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite o [4º] nome com até sete caracteres\n");
+        scanf("%s",nome4);
+
+        for(cont=0;nome4[cont]!='\0';cont++){}
+
+    }
+    while(cont>7);
+
+        do
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite o [5º] nome com até sete caracteres\n");
+        scanf("%s",nome5);
+
+        for(cont=0;nome5[cont]!='\0';cont++){}
+
+    }
+    while(cont>7);
+
+printf("        10        20        30        40        50\n");
+printf("12345678901234567890123456789012345678901234567890\n");
+printf("  %-7s                                 %-7s\n",nome1,nome5);
+printf("            %-7s             %-7s\n",nome2,nome4);
+printf("                      %-7s\n",nome5);
+
+
+resp=recomeca();
+
+}while(resp=='S' || resp=='s');
+}
+
+
+
+char recomeca()
+{
+char resp;
+    do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+            return resp;
+}
+
+
+#endif // ex2
