@@ -281,3 +281,65 @@ char resp;
             return resp;
 }
 #endif // ex3
+
+
+#ifdef ex4
+//Receba via teclado uma cadeia de caracteres (10) e converta todos os caracteres para letras minusculas.
+char recomeca();
+
+int main(){
+
+int cont=0;
+char resp,caracs[11];
+
+do{
+    do
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite uma palavra com até 10 caracteres\n");
+        scanf("%s",caracs);
+
+        for(cont=0;caracs[cont]!='\0';cont++)
+        {
+            if(caracs[cont]>=65 && caracs[cont] <=90)
+            {
+            caracs[cont]=caracs[cont]+32;
+            }
+
+        }
+    }
+    while(cont>10);
+
+    printf("%s\n",caracs);
+
+resp=recomeca();
+
+}while(resp=='S' || resp=='s');
+}
+
+
+char recomeca()
+{
+char resp;
+    do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+            return resp;
+}
+#endif // ex4
