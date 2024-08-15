@@ -244,3 +244,127 @@ char resp;
         return resp;
 }
 #endif // ex4
+
+
+#ifdef ex5
+/*Escreva um programa que receba via teclado uma data (dia, mes, e ano).
+Determine o dia da semana desta data.*/
+//Lógica baseada em:https://www.megacurioso.com.br/matematica-e-estatistica/44513-calendario-humano-como-transformar-seu-cerebro-em-uma-calculadora-de-datas.htm
+
+char recomeca();
+
+int main(){
+int dia,ano,mes,result,resto,contano,divi,a,b,cont=0,cont2,num,contmes[]={1,4,4,0,2,5,0,3,6,1,4,6},mult7=70;
+char resp,palavra[14];
+char seman[7][14]={"Sábado","Domingo","Segunda-feira","Terca-feira", "Quarta-feira","Quinta-feira","Sexta-feira"};
+
+do{
+
+setlocale(LC_ALL,"");
+printf("Digite uma data (dia,mes,ano)\n");
+scanf("%d %d %d",&dia,&mes,&ano);
+
+//Calcular chave do ano
+contano=ano%100;
+divi=contano/4;
+resto=contano%7;
+contano=divi+resto;
+contano=contano%7;
+
+ for(cont=0;cont!=mes;cont++)
+    {
+        for(a=0;a!=cont;a++)
+        {
+            if(cont==mes)
+            {
+            num=contmes[cont];
+            contmes[cont]=contmes[a];
+            contmes[a]=num;
+            }
+        }
+    }
+
+//Se o ano for de 2000 em diante
+if(ano>=2000)
+{
+    contano-=1;
+}
+
+//Se o ano foi bissexto (com mes 1 ou 2)
+if(mes==1 || mes==2 &&
+   ano%100!=0 && ano%4==0 || ano%400==0 && ano%4==0)
+{
+contano-=1;
+}
+
+//Soma dos valores do dia, mes e a chave do ano
+result=dia+contmes[a]+contano;
+
+//subtrair o resultado pelo maior múltiplo de 7
+if(result>=7)
+{
+    for(mult7=70;result<mult7;cont++)
+    {
+        mult7=mult7-7;
+        if(result>=mult7)
+        {
+        result=result-mult7;
+        }
+    }
+}
+
+result+=1;
+
+for(cont=0;cont!=result;cont++)
+{
+    for(cont2=0;cont2!=result;cont2++)
+     {
+        for(a=0;a!=cont;a++)
+        {
+         for(b=0;b!=cont;b++)
+         {
+            if(cont==result)
+            {
+            palavra[cont]=seman[cont][cont2];
+            seman[cont][cont2]=seman[a][b];
+            seman[a][b]=palavra[cont];
+            }
+        }
+       }
+     }
+}
+
+printf("O dia da semana da data %d/%d/%d é: %s\n",dia,mes,ano,seman[a]);
+
+
+resp=recomeca();
+
+}while(resp=='S' || resp=='s');
+}
+
+
+char recomeca()
+{
+char resp;
+    do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+        return resp;
+}
+#endif // ex5
