@@ -186,3 +186,61 @@ char resp;
         return resp;
 }
 #endif // ex3
+
+
+#ifdef ex4
+/*Escreva um programa que receba via teclado 2 numeros inteiros e execute as operacoes logicas bit a bit AND, OU, OU EXCLUSIVO e
+imprima-os no video no formato decimal e hexadecimal.*/
+char recomeca();
+
+int main(){
+char resp;
+int a,b;
+int num1,num2;
+
+do{
+setlocale(LC_ALL,"");
+printf("Digite dois números inteiros\n");
+scanf("%d %d",&num1,&num2);
+system("cls");
+
+printf("[AND]\nDec.:%d\nHex.:%x\n\n",num1 & num2,num1 & num2);
+printf("[OU]\nDec.:%d\nHex.:%x\n\n",num1 | num2,num1 | num2);
+printf("[OU EXCLUSIVO]\nDec.:%d\nHex.:%x\n\n",num1 ^ num2,num1 ^ num2);
+printf("[NOT]\n|1ºnúmero|\nDec.:%d\nHex.:%x\n|2ºnúmero|\nDec.:%d\nHex.:%x\n\n",~num1,~num1,~num2,~num2);
+printf("[Desloc. a direita]\n|1ºnúmero|\nDec.:%d\nHex.:%x\n|2ºnúmero|\nDec.:%d\nHex.:%x\n\n",num1>>3,num1>>3,num2>>3,num2>>3);
+printf("[Desloc. a esquerda]\n|1ºnúmero|\nDec.:%d\nHex.:%x\n|2ºnúmero|\nDec.:%d\nHex.:%x\n\n",num1<<1,num1<<1,num2<<1,num2<<1);
+resp=recomeca();
+
+}while(resp=='S' || resp=='s');
+}
+
+
+
+
+
+char recomeca()
+{
+char resp;
+    do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+        return resp;
+}
+#endif // ex4
