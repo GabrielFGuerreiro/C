@@ -123,3 +123,66 @@ char resp;
         return resp;
 }
 #endif // ex2
+
+
+#ifdef ex3
+/*Escreva um programa para determinar a idade de uma pessoa, em anos, meses e dias, recebendo via teclado a data
+(dia, mes e ano) do seu nascimento e a data (dia, mes e ano) atual.*/
+char recomeca();
+
+int main(){
+int nascidia,nascimes,nasciano,atdia,atmes,atano,result;
+char resp;
+
+do{
+setlocale(LC_ALL,"");
+printf("Digite a sua data de aniversário (dia,mês,ano)\n");
+scanf("%d %d %d",&nascidia,&nascimes,&nasciano);
+
+printf("Digite a data atual (dia,mês,ano)\n");
+scanf("%d %d %d",&atdia,&atmes,&atano);
+
+result=(atano*365 + atmes*30 + atdia) - (nasciano*365 + nascimes*30 + nascidia);
+
+
+nasciano=result/365;
+result=result%365;
+
+nascimes=result/30;
+result=result%30;
+
+nascidia=result;
+
+printf("Você possui %d anos,%d meses e %d dias\n\n",nasciano,nascimes,nascidia);
+
+resp=recomeca();
+
+}while(resp=='S' || resp=='s');
+}
+
+
+char recomeca()
+{
+char resp;
+    do
+        {
+            printf("Deseja recomeçar?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("ERRO\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            system("cls");
+        }
+        else
+            printf("\nAté logo!\n");
+
+        return resp;
+}
+#endif // ex3
