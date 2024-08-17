@@ -209,3 +209,143 @@ char resp;
 
 }
 #endif // ex2
+
+
+
+#ifdef ex3
+/*Escreva um programa com a estrutura de dados abaixo. Defina um vetor de estrutura de 4 elementos.
+Receba dados via teclado e imprima-os no video.Faça um menu com as seguintes opcoes:
+    1 - receber todos os dados
+    2 - imprime todos os dados
+    3 - calcula o IMC de todas as pessoas.
+    4 - sair
+Calculo do IMC = peso/(altura*altura). estrutura: nome, peso, altura*/
+
+recebe();
+imprime();
+imc();
+saida();
+
+struct dados {char nome[20];float peso;float alt};
+struct dados IMC[4];
+
+main(){
+
+int menu;
+
+while(1){
+setlocale(LC_ALL,"");
+printf("        Menu\n\n1 - Entrada de dados\n2 - Lista dos dados\n3 - Calcular o IMC de todos\n4 - Encerrar programa\n");
+printf("\nDigite sua opção\n");
+scanf("%d",&menu);
+
+    switch(menu)
+    {
+
+    case 1:
+
+        system("cls");
+        recebe();
+
+        break;
+
+    case 2:
+
+        system("cls");
+        imprime();
+
+        break;
+
+    case 3:
+
+        system("cls");
+        imc();
+        continue;
+        break;
+
+    case 4:
+
+        system("cls");
+        saida();
+
+        break;
+
+    default:
+
+        system("cls");
+        printf("Você escolheu uma opção inválida\n");
+
+        break;
+    }
+}
+}
+
+
+recebe(){
+
+int cont;
+
+for(cont=0;cont<4;cont++)
+{
+printf("\nDigite os dados da [%dº] pessoa:\n",cont+1);
+printf("Nome:");
+scanf("%s",&IMC[cont].nome);
+
+printf("Peso:");
+scanf("%f",&IMC[cont].peso);
+
+printf("Altura:");
+scanf("%f",&IMC[cont].alt);
+}
+
+}
+
+imprime(){
+int cont=0;
+
+setlocale(LC_ALL,"");
+
+for(cont=0;cont<4;cont++){
+printf("\n[%dº] Cadastro\n",cont+1);
+printf("Nome:%s\n",IMC[cont].nome);
+printf("Peso:%2.f\n",IMC[cont].peso);
+printf("Altura:%.2f\n_____________\n",IMC[cont].alt);
+}
+
+}
+
+imc(){
+int cont=0;
+
+for(cont=0;cont<4;cont++)
+{
+printf("IMC [%dº] Pessoa:%.2f\n",cont+1,IMC[cont].peso/(IMC[cont].alt*IMC[cont].alt));
+}
+}
+
+int saida()
+{
+
+char resp;
+    do
+        {
+            printf("Deseja encerrar o programa?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("Valor inválido\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            printf("\nAté logo!\n");
+            exit(0);
+        }
+        else
+            system("cls");
+
+}
+#endif // ex3
