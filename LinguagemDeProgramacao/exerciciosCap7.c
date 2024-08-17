@@ -79,3 +79,133 @@ char resp;
         return resp;
 }
 #endif // ex1
+
+
+#ifdef ex2
+
+/*Escreva um programa com a estrutura de dados abaixo. Defina um vetor de estruturas de 4 elementos.
+Receba os dados pelo teclado em uma funcao e imprima-os no video em uma funcao. Utilize vetor de estruturas.
+Faça um menu com uma opcao para saida do programa. estrutura: nome, end, cidade, estado, cep*/
+
+entrada();
+lista();
+saida();
+
+struct dados {char nome[20];char end[20];char cidade[15];char estado[15];int cep};
+struct dados cadastro[4];
+
+main(){
+
+int menu;
+
+while(1){
+setlocale(LC_ALL,"");
+printf("        Menu\n\n1 - Entrada de dados\n2 - Lista dos dados\n3 - Encerrar programa\n");
+printf("\nDigite sua opção\n");
+scanf("%d",&menu);
+
+    switch(menu)
+    {
+
+    case 1:
+
+        system("cls");
+        entrada();
+
+        break;
+
+    case 2:
+
+        system("cls");
+        lista();
+
+        break;
+
+    case 3:
+
+        system("cls");
+        saida();
+
+        break;
+
+    default:
+
+        system("cls");
+        printf("Você escolheu uma opção inválida\n");
+
+        break;
+    }
+
+}
+}
+
+
+entrada(){
+
+int cont;
+
+for(cont=0;cont<4;cont++)
+{
+printf("Digite seus dados para realizar o cadastro Nº[%d]:\n",cont+1);
+printf("Nome:");
+scanf(" %s",&cadastro[cont].nome);
+
+printf("Endereço:");
+scanf(" %s",&cadastro[cont].end);
+
+printf("Cidade:");
+scanf(" %s",&cadastro[cont].cidade);
+
+printf("Estado:");
+scanf(" %s",&cadastro[cont].estado);
+
+printf("CEP:");
+scanf("%d",&cadastro[cont].cep);
+printf("\n");
+}
+
+}
+
+lista(){
+int cont=0;
+
+setlocale(LC_ALL,"");
+for(cont=0;cont<4;cont++){
+printf("=============\n[%dº] Cadastro\n=============\n",cont+1);
+printf("Nome: %s\n",cadastro[cont].nome);
+printf("Endereço: %s\n",cadastro[cont].end);
+printf("Cidade: %s\n",cadastro[cont].cidade);
+printf("Estado: %s\n",cadastro[cont].estado);
+printf("CEP: %d\n",cadastro[cont].cep);
+
+}
+
+}
+
+
+int saida()
+{
+
+char resp;
+    do
+        {
+            printf("Deseja encerrar o programa?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("Valor inválido\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            printf("\nAté logo!\n");
+            exit(0);
+        }
+        else
+            system("cls");
+
+}
+#endif // ex2
