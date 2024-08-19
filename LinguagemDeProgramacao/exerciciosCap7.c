@@ -349,3 +349,118 @@ char resp;
 
 }
 #endif // ex3
+
+#ifdef ex4
+/*Escreva um programa com a estrutura de dados abaixo. Receba 2 datas via teclado na funcao main().
+Faca uma funcao que calcule o numero de dias entre elas e mostre o resultado no video na funcao main().
+Utilize vetor de estruturas. estrutura: dia, mes, ano*/
+
+calcule();
+saida();
+
+struct dados{int dia;int ano;int mes};
+struct dados data[2];
+
+//int dias_mes [2] [13] = {{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31},
+//                                {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}};
+main(){
+
+int cont=0;
+char resp;
+
+do{
+    for(cont=0; cont<2; cont++)
+    {
+        setlocale(LC_ALL,"");
+        printf("Digite a [%dº] data (dia,mes,ano)\n",cont+1);
+        do
+        {
+            printf("Dia:");
+            scanf("%d",&data[cont].dia);
+            if(data[cont].dia<1 || data[cont].dia>31)
+            {
+                printf("Valor inválido\n");
+            }
+        }
+        while(data[cont].dia<1 || data[cont].dia>31);
+
+        do
+        {
+            printf("Mês:");
+            scanf("%d",&data[cont].mes);
+            if(data[cont].mes<1 || data[cont].mes>12)
+            {
+                printf("Valor inválido\n");
+            }
+        }
+
+        while(data[cont].mes<1 || data[cont].mes>12);
+
+        do
+        {
+            printf("Ano:");
+            scanf("%d",&data[cont].ano);
+            if(data[cont].ano<=1000 || data[cont].ano>9999)
+            {
+                printf("Valor inválido\n");
+            }
+            printf("\n");
+        }
+        while(data[cont].ano<=1000 || data[cont].ano>9999);
+
+    }
+
+calcule();
+resp=saida();
+
+}while(resp=='N' || resp=='n');
+
+}
+
+calcule(){
+int cont,result;
+
+//int a,b;
+
+//a=data[0].mes;
+//b=data[1].mes;
+
+//a=dias_mes[0][a];
+//b=dias_mes[1][b];
+
+
+result=(data[1].ano*365 + data[1].mes*30 + data[1].dia) - (data[0].ano*365 + data[0].mes*30 + data[0].dia);
+
+
+printf("%d\n",result);
+
+}
+
+
+int saida()
+{
+
+char resp;
+    do
+        {
+            printf("Deseja encerrar o programa?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("Valor inválido\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            printf("\nAté logo!\n");
+            exit(0);
+        }
+        else
+            system("cls");
+
+        return resp;
+}
+#endif // ex4
