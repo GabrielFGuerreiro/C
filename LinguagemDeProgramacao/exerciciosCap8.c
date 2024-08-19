@@ -91,3 +91,84 @@ char resp;
         return resp;
 }
 #endif // ex1
+
+
+#ifdef ex2
+/*Escreva um programa que receba uma letra via teclado usando ponteiro. Escreva  uma funcao que pesquise esta letra existe
+no vetor abaixo usando ponteiros.Imprima o resultado da pesquisa no video na funcao main().
+Passe como informacao para a funcao a letra digitada usando ponteiros.(utilize o comando return).
+O vetor deve ser declarado como variavel global.
+
+vetor -> b,d,f,h,j,k,m,o,q,s,u,w,y*/
+
+int pesquisa(pc);
+char saida();
+
+char vet[]={'b','d','f','h','j','k','m','o','q','s','u','w','y'};
+
+main(){
+char letra;
+int result;
+
+char *pc;
+pc=&letra;
+
+printf("Digite uma letra\n");
+scanf(" %c",pc);
+
+result=pesquisa(pc);
+
+if(result==1)
+{
+setlocale(LC_ALL,"");
+printf("A letra existe no vetor\n");
+}
+
+else
+printf("A letra n�o existe no vetor\n");
+
+}
+
+
+int pesquisa(char *pc){
+
+int cont=0;
+
+for(cont=0;vet[cont]!='\0';cont++)
+{
+    if(*pc==vet[cont])
+    {
+        return *pc=1;
+    }
+}
+
+return *pc;
+}
+
+char saida()
+{
+
+char resp;
+    do
+        {
+            printf("\nDeseja encerrar o programa?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("Valor inv�lido\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            printf("\nAt� logo!\n");
+            exit(0);
+        }
+        else
+            system("cls");
+
+        return resp;
+}
+#endif // ex2
