@@ -264,3 +264,87 @@ char resp;
 }
 #endif // ex3
 
+#ifdef ex4
+/*Escreva um programa que receba via teclado numeros inteiros positivos usando ponteiros.
+Quando o numero digitado for negativo o programa deve parar e calcula a media dos valores digitados e mostrar o resultado.
+Todos os calculos devem ser feitos usando ponteiro.*/
+
+char saida();
+
+int main()
+{
+
+int num=0,cont=0;
+float result=0;
+
+int *pnum;
+int *pcont;
+float *presult;
+char resp;
+
+pnum=&num;
+pcont=&cont;
+presult=&result;
+
+do{
+setlocale(LC_ALL,"");
+printf("===============================================\n");
+printf("Digite um n�mero negativo para calcular a m�dia\n");
+printf("===============================================\n");
+
+do
+{
+    printf("Digite um n�mero inteiro positivo\n");
+    scanf("%d",pnum);
+
+    if(*pnum>0)
+    {
+        *presult=(*presult)+(*pnum);
+        *pcont+=1;
+    }
+
+    else
+    {
+        break;
+    }
+
+}while(*pnum>0);
+
+*presult=(*presult)/(*pcont);
+
+printf("\nA media dos n�meros positivos �: [%2.f]\n",*presult);
+
+resp=saida();
+
+}while(resp=='n' || resp=='N');
+}
+
+
+
+char saida()
+{
+
+char resp;
+    do
+        {
+            printf("\nDeseja encerrar o programa?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("Valor inv�lido\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            printf("\nAt� logo!\n");
+            exit(0);
+        }
+        else
+            system("cls");
+
+        return resp;
+}
+#endif // ex4
