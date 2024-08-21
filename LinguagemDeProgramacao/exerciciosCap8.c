@@ -172,3 +172,95 @@ char resp;
         return resp;
 }
 #endif // ex2
+
+#ifdef ex3
+/*Escreva um programa que receba via teclado usando ponteiros um char, int, long, unsigned, float, double, unsigned long e
+unsigned char, e imprima-os no video utilizando ponteiros no seguinte formato:
+
+            10        20        30        40        50        60
+    123456789012345678901234567890123456789012345678901234567890
+        int                 long                unsigned
+                  float               double              char
+             unsigned long       unsigned char*/
+char saida();
+
+main()
+{
+int num;
+long longo;
+unsigned unsi;
+float deci;
+double deci2;
+unsigned long longou;
+unsigned char charu;
+char carac,resp;
+
+int *pnum;
+long *pl;
+unsigned *pu;
+float *pf;
+double *pd;
+unsigned long *plu;
+unsigned char *pcu;
+char *pc;
+
+pnum=&num;
+pl=&longo;
+pu=&unsi;
+pf=&deci;
+pd=&deci2;
+plu=&longou;
+pcu=&charu;
+pc=&carac;
+
+do{
+setlocale(LC_ALL,"");
+printf("Digite 6 n�meros\n");
+scanf("%d %ld %u %f %lf %lu",pnum,pl,pu,pf,pd,plu);
+
+printf("Digite 2 caracteres\n");
+scanf(" %c",pcu);
+scanf(" %c",pc);
+
+
+printf("\n        10        20        30        40        50        60\n");
+printf("123456789012345678901234567890123456789012345678901234567890\n");
+printf("    %-2d                  %-6ld              %-10u\n",*pnum,*pl,*pu);
+printf("              %-2.2f                %.2lf                %-10c\n",*pf,*pd,*pc);
+printf("         %-2lu                  %-5c\n",*plu,*pcu);
+
+resp=saida();
+
+}while(resp=='n' || resp=='N');
+}
+
+
+
+char saida()
+{
+
+char resp;
+    do
+        {
+            printf("\nDeseja encerrar o programa?(S/N)\n");
+            resp=getch();
+            if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+            {
+                        printf("Valor inv�lido\n");
+            }
+        }
+        while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+        if(resp=='S' || resp=='s')
+        {
+            printf("\nAt� logo!\n");
+            exit(0);
+        }
+        else
+            system("cls");
+
+        return resp;
+}
+#endif // ex3
+
