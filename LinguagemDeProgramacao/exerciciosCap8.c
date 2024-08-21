@@ -348,3 +348,73 @@ char resp;
         return resp;
 }
 #endif // ex4
+
+
+#ifdef ex5
+/*Escreva um programa com a estrutura abaixo. Receba 2 datas via teclado usando ponteiros.
+Calcule e exiba o numero de dias entre as duas datas usando ponteiros. Utilize um vetor de estruturas.
+estrutura: dia, mes e ano*/
+
+
+struct dados{int dia;int mes;int ano};
+
+int main(){
+
+int cont=0,result;
+
+struct dados data[2];
+
+struct dados *pdata;
+
+pdata=&data[0]; //ou pdata=data;
+
+setlocale(LC_ALL,"");
+
+    for(cont=0;cont<2;cont++)
+    {
+        printf("Digite a [%d°] data (dia,mes,ano)\n",cont+1);
+        do
+        {
+            printf("Dia:");
+            scanf("%d",&pdata[cont].dia);
+            if(pdata[cont].dia<1 || pdata[cont].dia>31)
+            {
+                printf("Valor inválido\n");
+            }
+        }
+        while(pdata[cont].dia<1 || pdata[cont].dia>31);
+
+        do
+        {
+            printf("Mês:");
+            scanf("%d",&pdata[cont].mes);
+            if(pdata->mes<1 || pdata->mes>12)
+            {
+                printf("Valor inválido\n");
+            }
+        }
+
+        while(pdata[cont].mes<1 || pdata[cont].mes>12);
+
+        do
+        {
+            printf("Ano:");
+            scanf("%d",&pdata[cont].ano);
+            if(pdata[cont].ano<=1000 || pdata[cont].ano>9999)
+            {
+                printf("Valor inv�lido\n");
+            }
+            printf("\n");
+        }
+        while(pdata[cont].ano<=1000 || pdata[cont].ano>9999);
+
+
+}
+
+
+result=(pdata[1].ano*365 + pdata[1].mes*30 + pdata[1].dia) - (pdata[0].ano*365 + pdata[0].mes*30 + pdata[0].dia);
+
+printf("%d\n",result);
+
+}
+#endif // ex5
