@@ -199,3 +199,96 @@ return resp;
 }
 
 #endif // ex2
+
+
+#ifdef ex3
+/*Escreva um programa que receba em uma funcao 2 strings de ate' 10 caracteres passando como parametro ponteiro.
+Os vetores devem ser declarados como variaveis LOCAIS na função main().
+Escreva uma funcao para comparar as 2 strings. Passe como parametros para a funcao as 2 strings usando ponteiros
+e retorne como resultado se IGUAIS 1 ou se DIFERENTES 0. Mostre o resultado no video na funcao main().*/
+
+compara(char *pvetor1,char *pvetor2);
+char saida();
+
+main()
+{
+char vet1[11],vet2[11];
+
+char *pvet1,*pvet2,resp;
+
+pvet1=&vet1[0];
+pvet2=vet2;
+
+int x;
+
+do{
+printf("Digite duas strings\n");
+scanf("%s %s",pvet1,pvet2);
+
+x=compara(pvet1,pvet2);
+
+if(x==1)
+{
+setlocale(LC_ALL,"");
+printf("Os vetores são iguais\n");
+}
+else
+{
+setlocale(LC_ALL,"");
+printf("Os vetores não são iguais\n");
+}
+
+
+resp=saida();
+}while(resp=='n' || resp=='N');
+}
+
+
+
+
+compara(char *pvetor1,char *pvetor2)
+{
+int cont=0;
+
+for(cont=0;*(pvetor1+cont)!='\0' && *(pvetor2+cont)!='\0';cont++)
+{
+     if(*(pvetor1+cont)!=*(pvetor2+cont))
+    {
+        return cont=0;
+    }
+}
+if(*(pvetor1+cont)=='\0' && *(pvetor2+cont)=='\0')
+{
+return cont=1;
+}
+
+}
+
+
+char saida()
+{
+
+char resp;
+
+do
+{
+printf("Deseja encerrar o programa?(S/N)\n");
+resp=getch();
+if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+    {
+        printf("Valor inválido\n");
+    }
+}while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+if(resp=='S' || resp=='s')
+    {
+        printf("\nAté logo!\n");
+        exit(0);
+    }
+else
+    system("cls");
+
+return resp;
+}
+#endif // ex3
