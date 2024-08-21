@@ -418,3 +418,81 @@ printf("%d\n",result);
 
 }
 #endif // ex5
+
+
+#ifdef ex6
+/*Com a estrutura abaixo, defina um vetor de estruturas de 4 elementos. Receba os dados via teclado numa funcao usando ponteiros.
+Imprima os dados recebidos no video numa funcao usando ponteiros. Utilize um comando de loop.
+O vetor de estruturas de ser declarado como variavel global. Estrutura: nome, end, cidade, estado, cep*/
+
+entrada(pinfos);
+lista(pinfos);
+
+struct dados{char nome[15];char end[20];char cidade[15];char estado[10];char cep[10]};
+
+struct dados infos[4];
+
+main(){
+
+struct dados *pinfos;
+
+pinfos=&infos[0];
+
+entrada(pinfos);
+lista(pinfos);
+}
+
+
+
+entrada(struct dados *pinfos)
+{
+
+int cont;
+
+setlocale(LC_ALL,"");
+for(cont=0;cont<4;cont++)
+{
+printf("Digite o [%dº] Nome:",cont+1);
+scanf("%s",&pinfos[cont].nome);
+
+printf("\nDigite o [%dº] Endereço:",cont+1);
+scanf("%s",&pinfos[cont].end);
+
+printf("\nDigite a [%dº] Cidade:",cont+1);
+scanf("%s",&pinfos[cont].cidade);
+
+printf("\nDigite o [%dº] Estado:",cont+1);
+scanf("%s",&pinfos[cont].estado);
+
+printf("\nDigite o [%dº] CEP:",cont+1);
+scanf("%s",&pinfos[cont].cep);
+printf("\n");
+}
+
+}
+
+lista(struct dados *pinfos)
+{
+int cont;
+
+setlocale(LC_ALL,"");
+
+for(cont=0;cont<4;cont++)
+{
+printf("O [%dº] Nome é:%s",cont+1,pinfos[cont].nome);
+
+printf("\nO [%dº] Endereço:%s",cont+1,pinfos[cont].end);
+
+printf("\nO [%dº] Cidade:%s",cont+1,pinfos[cont].cidade);
+
+printf("\nO [%dº] Estado:%s",cont+1,pinfos[cont].estado);
+
+printf("\nO [%dº] CEP:%s",cont+1,pinfos[cont].cep);
+printf("\n");
+}
+
+}
+
+
+
+#endif // ex6
