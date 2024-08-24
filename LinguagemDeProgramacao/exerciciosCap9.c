@@ -292,3 +292,88 @@ else
 return resp;
 }
 #endif // ex3
+
+
+#ifdef ex4
+/*Escreva um programa que tem uma estrutura da dados com os membros abaixo. A estrutura e' uma variavel LOCAL na funcao main().
+Receba via teclado o conteudo de cada um dos membros numa funcao e imprima-os no video no seguinte formato
+(também numa função).
+estrutura: char, int, long, float, double, unsigned char, unsigned int,unsigned long
+            10        20        30        40        50        60        70
+    1234567890123456789012345678901234567890123456789012345678901234567890
+        char      int       long                float               double
+              unsigned char       unsigned int        unsigned long*/
+
+
+struct dados{char charac;int num;long longo;float deci;double decib;
+unsigned char charau;unsigned int numu;unsigned long longou;};
+
+char saida();
+
+main()
+{
+struct dados infos;
+struct dados *pst;
+pst=&infos;
+
+char resp;
+
+do{
+entrada(pst);
+imprime(pst);
+resp=saida();
+
+}while(resp=='n' || resp=='N');
+
+}
+
+
+entrada(struct dados *pst)
+{
+setlocale(LC_ALL,"");
+printf("Digites seis valores numéricos\n");
+scanf("%d %ld %f %lf %u %lu",&pst->num,&pst->longo,&pst->deci,&pst->decib,&pst->numu,&pst->longou);
+
+printf("Digites dois caracteres\n");
+scanf(" %c",&pst->charac);
+scanf(" %c",&pst->charau);
+}
+
+
+imprime(struct dados *pst)
+{
+printf("        10        20        30        40        50        60        70\n");
+printf("1234567890123456789012345678901234567890123456789012345678901234567890\n");
+printf("    %-2c        %-6d    %-11ld         %-10.2f          %-10.2lf\n",pst->charac,pst->num,pst->longo,pst->deci,pst->decib);
+printf("          %-2c                  %-5u               %-10ld\n",pst->charau,pst->numu,pst->longou);
+}
+
+
+char saida()
+{
+
+char resp;
+
+do
+{
+printf("Deseja encerrar o programa?(S/N)\n");
+resp=getch();
+if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+    {
+        printf("Valor inválido\n");
+    }
+}while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+if(resp=='S' || resp=='s')
+    {
+        printf("\nAté logo!\n");
+        exit(0);
+    }
+else
+    system("cls");
+
+return resp;
+}
+#endif // ex4
+
