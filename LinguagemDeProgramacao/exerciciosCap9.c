@@ -520,3 +520,307 @@ else
 #endif // ex5
 
 
+
+#ifdef ex6
+/*Acrescente ao menu do exercicio anterior as funcoes de procura, altera e exclui um registro sempre usando ponteiros.*/
+
+struct dados {char nome[20];char end[20];char cidade[15];char estado[15];char cep[10]};
+
+entrada(struct dados *pcad);
+lista(struct dados *pcad);
+procura(struct dados *pcad);
+altera(struct dados *pcad);
+exclui(struct dados *pcad);
+saida();
+
+
+main()
+{
+struct dados cadastro[4];
+struct dados *pcad;
+pcad=&cadastro[0];
+
+int menu;
+
+while(1){
+setlocale(LC_ALL,"");
+printf("        [Menu]\n\n1 - Entrada de dados\n2 - Lista dos dados\n3 - Pesquisar dados\n4 - Alterar dados\n");
+printf("5 - Excluir dados\n6 - Encerrar programa\n");
+printf("\nDigite sua opção\n");
+scanf("%d",&menu);
+
+switch(menu)
+{
+
+case 1:
+
+    system("cls");
+    entrada(pcad);
+
+    break;
+
+case 2:
+
+    system("cls");
+    lista(pcad);
+
+    break;
+
+case 3:
+
+    system("cls");
+    procura(pcad);
+
+    break;
+
+case 4:
+
+    system("cls");
+    altera(pcad);
+
+    break;
+
+case 5:
+
+    system("cls");
+    exclui(pcad);
+
+    break;
+
+case 6:
+
+    system("cls");
+    saida();
+
+    break;
+
+default:
+
+    system("cls");
+    printf("Você escolheu uma opção inválida\n");
+
+    break;
+    }
+
+}
+
+}
+
+
+entrada(struct dados *pcad)
+{
+int cont;
+
+for(cont=0;cont<4;cont++)
+{
+printf("Digite seus dados para realizar o cadastro Nº[%d]:\n",cont+1);
+printf("Nome:");
+scanf("%s",&(pcad+cont)->nome);
+
+printf("Endereço:");
+scanf("%s",&(pcad+cont)->end);
+
+printf("Cidade:");
+scanf("%s",&(pcad+cont)->cidade);
+
+printf("Estado:");
+scanf("%s",&(pcad+cont)->estado);
+
+printf("CEP:");
+scanf("%s",&(pcad+cont)->cep);
+printf("\n");
+}
+
+}
+
+
+lista(struct dados *pcad)
+{
+int cont=0;
+
+setlocale(LC_ALL,"");
+
+for(cont=0;cont<4;cont++)
+{
+printf("[%dº] Cadastro\n",cont+1);
+printf("Nome: %s\n",(pcad+cont)->nome);
+printf("Endereço: %s\n",(pcad+cont)->end);
+printf("Cidade: %s\n",(pcad+cont)->cidade);
+printf("Estado: %s\n",(pcad+cont)->estado);
+printf("CEP: %s\n",(pcad+cont)->cep);
+printf("-------------\n\n");
+}
+}
+
+
+procura(struct dados *pcad)
+{
+int cont=0,i=0,z=0;
+
+char x[10];
+char *px;
+px=&x[0];
+
+printf("Digite o 'nome' do registro que procura\n");
+scanf("%s",px);
+
+for(cont=0;cont<4;cont++)
+{
+    for(i=0;(pcad+cont)->nome[i]!='\0' || *(px+i)!='\0';i++)
+    //while((pcad+cont)->nome[i]!='\0' || *(px+i)!='\0')
+    {
+        if(*(px+i)!=(pcad+cont)->nome[i] &&  (pcad+cont)->nome[i]!='\0')
+        {
+            break;
+        }
+        //i++;
+    }
+    if(*(px+i)==(pcad+cont)->nome[i])
+    {
+        printf("[%dº] Cadastro\n",cont+1);
+        printf("Nome: %s\n",(pcad+cont)->nome);
+        printf("Endereço: %s\n",(pcad+cont)->end);
+        printf("Cidade: %s\n",(pcad+cont)->cidade);
+        printf("Estado: %s\n",(pcad+cont)->estado);
+        printf("CEP: %s\n",(pcad+cont)->cep);
+        return 0;
+    }
+
+    else
+    z++;
+}
+
+if(z>3)
+{
+    printf("ERRO!Registro não encontrado\n");
+}
+}
+
+
+altera(struct dados *pcad)
+{
+int cont=0,i=0,z=0;
+
+char x[10];
+char *px;
+px=&x[0];
+
+printf("Digite o 'nome' do registro que procura para alterar\n");
+scanf("%s",px);
+
+printf("\n");
+
+for(cont=0;cont<4;cont++)
+{
+    for(i=0;(pcad+cont)->nome[i]!='\0' || *(px+i)!='\0';i++)
+    //while((pcad+cont)->nome[i]!='\0' || *(px+i)!='\0')
+    {
+        if(*(px+i)!=(pcad+cont)->nome[i])
+        {
+            break;
+        }
+        //i++;
+    }
+    if(*(px+i)==(pcad+cont)->nome[i])
+    {
+        printf("Digite as novas informações do cadastro\n");
+        printf("Nome:");
+        scanf("%s",&(pcad+cont)->nome);
+
+        printf("Endereço:");
+        scanf("%s",&(pcad+cont)->end);
+
+        printf("Cidade:");
+        scanf("%s",&(pcad+cont)->cidade);
+
+        printf("Estado:");
+        scanf("%s",&(pcad+cont)->estado);
+
+        printf("CEP:");
+        scanf("%s",&(pcad+cont)->cep);
+        printf("\n");
+        return 0;
+    }
+
+    else
+    z++;
+}
+
+if(z>3)
+{
+    printf("ERRO!Registro não encontrado\n");
+}
+}
+
+
+exclui(struct dados *pcad)
+{
+int cont=0,i=0,z=0;
+
+char x[10];
+char *px;
+px=&x[0];
+
+printf("Digite o 'nome' do registro que procura para excluir\n");
+scanf("%s",px);
+
+for(cont=0;cont<4;cont++)
+{
+    for(i=0;(pcad+cont)->nome[i]!='\0' || *(px+i)!='\0';i++)
+    //while((pcad+cont)->nome[i]!='\0' || *(px+i)!='\0')
+    {
+        if(*(px+i)!=(pcad+cont)->nome[i])
+        {
+            break;
+        }
+        //i++;
+    }
+    if(*(px+i)==(pcad+cont)->nome[i])
+    {
+        (pcad+cont)->nome[0]='\0';
+        (pcad+cont)->end[0]='\0';
+        (pcad+cont)->cidade[0]='\0';
+        (pcad+cont)->estado[0]='\0';
+        (pcad+cont)->cep[0]='\0';
+        printf("\n[%dº] Cadastro excluido com sucesso\n",cont+1);
+        return 0;
+    }
+
+    else
+    z++;
+}
+
+if(z>3)
+{
+    printf("ERRO!Registro não encontrado\n");
+}
+}
+
+
+int saida()
+{
+
+char resp;
+
+do
+{
+printf("Deseja encerrar o programa?(S/N)\n");
+resp=getch();
+if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+    {
+        printf("Valor inválido\n");
+    }
+}while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+if(resp=='S' || resp=='s')
+    {
+        printf("\nAté logo!\n");
+        exit(0);
+    }
+else
+    system("cls");
+
+}
+
+#endif // ex6
