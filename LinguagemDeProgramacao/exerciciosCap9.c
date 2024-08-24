@@ -377,3 +377,146 @@ return resp;
 }
 #endif // ex4
 
+
+#ifdef ex5
+/*Escreva um programa com a estrutura abaixo. Defina um vetor de estruturas de 4 elementos como variavel LOCAL na funcao main().
+Receba os 4 registros sequencialmente pelo teclado numa função e imprima todos os registros no video em outra funcao.
+Faça um menu. Utilize ponteiros nas funcoes. Coloque no menu a opção de sair tambem. Utilize o comando switch.
+(vetor de estruturas)
+estutura: nome, end, cidade, estado, cep*/
+
+struct dados {char nome[20];char end[20];char cidade[15];char estado[15];char cep[10]};
+
+entrada(struct dados *pcad);
+lista(struct dados *pcad);
+saida();
+
+
+main()
+{
+struct dados cadastro[4];
+struct dados *pcad;
+pcad=&cadastro[0];
+
+int menu;
+
+while(1){
+setlocale(LC_ALL,"");
+printf("        [Menu]\n\n1 - Entrada de dados\n2 - Lista dos dados\n3 - Encerrar programa\n");
+printf("\nDigite sua opção\n");
+scanf("%d",&menu);
+
+switch(menu)
+{
+
+case 1:
+
+    system("cls");
+    entrada(pcad);
+
+    break;
+
+case 2:
+
+    system("cls");
+    lista(pcad);
+
+    break;
+
+case 3:
+
+    system("cls");
+    saida();
+
+    break;
+
+default:
+
+    system("cls");
+    printf("Você escolheu uma opção inválida\n");
+
+    break;
+    }
+
+}
+
+}
+
+
+
+entrada(struct dados *pcad)
+{
+int cont;
+
+for(cont=0;cont<4;cont++)
+{
+printf("Digite seus dados para realizar o cadastro Nº[%d]:\n",cont+1);
+printf("Nome:");
+scanf(" %s",&(pcad+cont)->nome);
+
+printf("Endereço:");
+scanf(" %s",&(pcad+cont)->end);
+
+printf("Cidade:");
+scanf(" %s",&(pcad+cont)->cidade);
+
+printf("Estado:");
+scanf(" %s",&(pcad+cont)->estado);
+
+printf("CEP:");
+scanf(" %s",&(pcad+cont)->cep);
+printf("\n");
+}
+
+}
+
+
+lista(struct dados *pcad)
+{
+int cont=0;
+
+setlocale(LC_ALL,"");
+
+for(cont=0;cont<4;cont++)
+{
+printf("[%dº] Cadastro\n",cont+1);
+printf("Nome: %s\n",(pcad+cont)->nome);
+printf("Endereço: %s\n",(pcad+cont)->end);
+printf("Cidade: %s\n",(pcad+cont)->cidade);
+printf("Estado: %s\n",(pcad+cont)->estado);
+printf("CEP: %s\n",(pcad+cont)->cep);
+printf("-------------\n\n");
+}
+
+}
+
+
+int saida()
+{
+
+char resp;
+
+do
+{
+printf("Deseja encerrar o programa?(S/N)\n");
+resp=getch();
+if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+    {
+        printf("Valor inválido\n");
+    }
+}while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+if(resp=='S' || resp=='s')
+    {
+        printf("\nAté logo!\n");
+        exit(0);
+    }
+else
+    system("cls");
+
+}
+
+#endif // ex5
+
+
