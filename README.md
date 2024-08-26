@@ -41,3 +41,38 @@ char          |       um caracter      |       1 byte          |  caracs. ASCII/
 int           |       um inteiro       |       4 bytes         |        -2147483648 a 2147483647.  
 float         |    números reais PF    |       4 bytes         |          -3.4E-38 a 3.4E+38.   
 double        |    números reais PF    |       8 bytes         |         -1.7E-307 a 1.7E+308.  
+
+Para receber e imprimir números utiliza-se as funções de biblioteca printf e scanf:  
+
+● printf() 🡪 escreve caracteres formatados na saída padrão (no caso vídeo).  
+A forma geral da função printf() é:  
+        printf("|série de controle|", lista de argumentos);   
+
+
+A série de controle são os caracteres (letras, números, símbolos etc.) a serem impressos na tela e códigos de formatação especificam como mostrar o conteúdo definido pelo tipo de informação declarada na lista de argumentos (tipo da variável).
+Os códigos de formatação:  
+        %c - exibe um único caracter    
+        %d - exibe um inteiro  
+        %f - exibe um número real em ponto flutuante  
+        %e - exibe um número real em ponto flutuante na notação cientifica  
+        %g - utiliza o mais curto de %e ou %f   
+        %x - exibe um número em notação hexadecimal  
+        %o - exibe um número em notação octal  
+        %% - exibe um sinal de %  
+
+● scanf() 🡪 lê caracteres formatados da entrada padrão. (no caso teclado)  
+A forma geral da função scanf() é:  
+        scanf("|serie de controle|", lista de argumentos);  
+
+Nesta serie de controle não se pode usar caracteres, apenas o código de formatação, sendo eles:  
+        %c - leia um único caracter  
+        %d - leia um inteiro  
+        %f - leia um número em ponto flutuante  
+        %e - exibe um número em notação cientifica  
+        %g - utiliza o mais curto de %e ou %f,  
+        %x - leia um inteiro hexadecimal  
+        %o - leia um inteiro octal  
+
+OBS.:  
+O dado deve ser armazenado no endereço de memória que o computador alocou para a variável declarada. O operador de endereço & faz com que o valor digitado pelo usuário seja colocado no endereço correto de memória onde a variável foi criada pelo computador.  
+
