@@ -126,3 +126,30 @@ else
     declaração2;   
 }   
 
+
+#### Comando SWITCH
+No comando "switch", a variável é sucessivamente testada a uma lista de "inteiros" ou "constantes" do tipo caracter. Quando uma associação é encontrada, o conjunto de "declarações" é executado.  
+
+O formato geral é:  
+switch (variável)  
+{  
+  case constante_1:  
+    declaração_1;  
+    break;  
+
+  case constante_2:  
+    declaração_2;  
+    break;  
+      
+  case constante_n:  
+    declaração_n;  
+    break;  
+  
+  default:  
+    declaração_default;  
+}  
+
+● A declaração "default" é opcional e será executada apenas se a "variável" que esta sendo testada não for igual a nenhuma das "constantes".
+
+
+● “break” é chamado de comando de "desvio", onde ele realiza um "desvio incondicional". O “case” será executado até que o comando “break” ou o fim do “switch” seja alcançado. Quando o comando “break” é alcançado o programa salta para a declaração seguinte ao final do “switch” (o fecha chave "}" ). Ele também pode ser utilizado para forçar a saída incondicional de um laço de repetição (infinito ou não).
