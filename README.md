@@ -153,3 +153,47 @@ switch (variável)
 
 
 ● “break” é chamado de comando de "desvio", onde ele realiza um "desvio incondicional". O “case” será executado até que o comando “break” ou o fim do “switch” seja alcançado. Quando o comando “break” é alcançado o programa salta para a declaração seguinte ao final do “switch” (o fecha chave "}" ). Ele também pode ser utilizado para forçar a saída incondicional de um laço de repetição (infinito ou não).
+
+### Comandos de Controle de Repetição
+
+Permitem que um conjunto de instruções sejam executados até que uma "condição limite" seja encontrada. Os comandos são: for, while e do - while.
+
+#### Comando FOR
+O comando "for" repete uma "declaração" ou um "grupo de declarações", controlado por uma variável e executado por um número finito de vezes.  
+
+O formato geral quando se tem uma única declaração é:  
+
+    for (expressão 1 ; expressão 2 ; expressão 3)  
+            declaração;  
+
+O formato geral quando se tem mais de uma declaração é:  
+
+    for (expressão 1 ; expressão 2 ; expressão 3)  
+        {  
+        declaração;  
+        declaração;  
+        }  
+
+● Na "expressão 1" inicializa-se a variável de controle o loop;  
+● Na "expressão 2" testa-se a variável de controle. Este teste pode ser um teste logico ou um contador. Enquanto o teste da variável de controle for verdade (==1) o loop continua a ser executado. Quando o teste se torna falso(==0), o controle do programa passa para a "declaração" seguinte ao loop apos o fecha chave "}" quando  este existir;  
+● Na "expressão 3" controla-se o incremento ou decremento da variável de controle do loop.  
+
+O funcionamento do comando "for" começa pela "expressão 1" onde a variável de controle do loop é inicializada. (executada uma única vez no inicio do loop). Então executa-se as "declarações". Em seguida a "expressão 3", incrementa ou decrementa da variável de controle. Apos a execução da "expressão 3" é testada a variável de controle na "expressão 2".  
+
+● Laço/loop infinito  
+
+Um comando "for" sem a "expressão 2" ou seja, sem o teste logico, é sempre verdade. Isso caracteriza um "loop infinito". Normalmente o "loop infinito" não tem as 3 expressões de controle no caso do comando "for".  
+
+O formato geral sem a expressão 2 é:  
+
+    for (expressão 1 ;; expressão 3)  
+    {  
+    declaração;  
+    }  
+
+O formato geral sem as 3 expressão é:  
+
+    for (;;)  
+    {  
+    declaração;  
+    }  
