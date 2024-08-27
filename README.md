@@ -76,3 +76,32 @@ Nesta serie de controle não se pode usar caracteres, apenas o código de format
 OBS.:  
 O dado deve ser armazenado no endereço de memória que o computador alocou para a variável declarada. O operador de endereço & faz com que o valor digitado pelo usuário seja colocado no endereço correto de memória onde a variável foi criada pelo computador.  
 
+## Comandos
+Na linguagem C há três formas básicas de controle:  
+1 - Executar uma série de instruções;  
+2 - Tomar decisões para desviar a execução do programa. (controle de fluxo);  
+3 - Repetir uma sequência de instruções até que uma condição seja satisfeita. (controle de repetição).  
+
+### Comandos de Controle de Fluxo
+São aqueles que permitem ao programador alterar a sequência de execução do programa, sendo eles if e switch.
+
+#### Comando IF
+
+O comando "if" representa uma tomada de decisão do tipo "SE isto ENTAO aquilo". (== 1) executa a "declaração", se falsa(== 0) não executa a "declaração".
+
+
+O formato geral quando se tem uma única declaração é:
+
+if (expressão)  
+
+
+  declaração;  
+
+
+O formato geral quando se tem mais de uma declaração é:  
+
+if (expressão)  
+ {  
+  declaração;  
+  declaração;  
+ }  
