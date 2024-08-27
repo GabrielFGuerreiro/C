@@ -87,21 +87,42 @@ São aqueles que permitem ao programador alterar a sequência de execução do p
 
 #### Comando IF
 
-O comando "if" representa uma tomada de decisão do tipo "SE isto ENTAO aquilo". (== 1) executa a "declaração", se falsa(== 0) não executa a "declaração".
+O comando "if" representa uma tomada de decisão do tipo "SE isto ENTAO aquilo". (== 1) executa a "declaração", se falsa(== 0) não executa a "declaração".   
 
-
-O formato geral quando se tem uma única declaração é:
+O formato geral quando se tem uma única declaração é:   
 
 if (expressão)  
-
-
   declaração;  
-
 
 O formato geral quando se tem mais de uma declaração é:  
 
 if (expressão)  
- {  
+{  
   declaração;  
   declaração;  
- }  
+}  
+
+#### Comando IF-ELSE
+O comando "if-else" é uma expansão do comando "if". No comando "if" só se executa a declaração ou declarações se a expressão for verdadeira(== 1). O comando "else" permite executar outra declaração se a expressão for falsa(== 0).   
+
+O formato geral quando se tem uma única declaração é:   
+
+if (expressão)   
+    declaração1;   
+else   
+    declaração2;   
+
+
+O formato geral quando se tem mais de uma declaração é:   
+
+if (expressão)   
+{   
+    declaração1;   
+    declaração1;   
+}   
+else   
+{   
+    declaração2;   
+    declaração2;   
+}   
+
