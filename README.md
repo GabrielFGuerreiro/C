@@ -11,7 +11,6 @@ Este repositório contém os materiais dos meus estudos nas aulas de Algoritimo 
 # Estudos/Anotações
 
 ## Variáveis Simples
-
 O tipo de variável mais simples na linguagem C é o caracter. Este tipo é declarado utilizando-se a palavra reservada "char". A variável "char" reserva um único byte na memoria do computador, e guarda um caracter da tabela ASCII.  
 Um byte guarda valores de -128 a 127. Na memoria do computador não existem caracteres e sim números guardados. A tabela ASCII mostra esta equivalência.  
 
@@ -30,7 +29,6 @@ A forma geral da função putchar() é:
 putchar(variável);
 
 ## Variáveis Simples Numéricas
-
 A variável "int" reserva 4 byte na memoria do computador, e guarda valores entre -2147483648 e 2147483647.  
 Utilizam-se variáveis simples também para armazenar número reais. Ela reserva 4 byte na memoria do computador, e guarda valores entre -3.4E-38 a 3.4E+38. Esta variável também é chamada como "números reais em ponto flutuante".  
 Há outra variável simples que armazena números reais, mas com capacidade para armazenar um faixa de valores maior que o "float": a variável "double". Ela guarda valores entre -1.7E-307 a 1.7E+308.
@@ -86,7 +84,6 @@ Na linguagem C há três formas básicas de controle:
 São aqueles que permitem ao programador alterar a sequência de execução do programa, sendo eles if e switch.
 
 #### Comando IF
-
 O comando "if" representa uma tomada de decisão do tipo "SE isto ENTAO aquilo". (== 1) executa a "declaração", se falsa(== 0) não executa a "declaração".   
 
 O formato geral quando se tem uma única declaração é:   
@@ -126,7 +123,6 @@ else
     declaração2;   
 }   
 
-
 #### Comando SWITCH
 No comando "switch", a variável é sucessivamente testada a uma lista de "inteiros" ou "constantes" do tipo caracter. Quando uma associação é encontrada, o conjunto de "declarações" é executado.  
 
@@ -155,7 +151,6 @@ switch (variável)
 ● “break” é chamado de comando de "desvio", onde ele realiza um "desvio incondicional". O “case” será executado até que o comando “break” ou o fim do “switch” seja alcançado. Quando o comando “break” é alcançado o programa salta para a declaração seguinte ao final do “switch” (o fecha chave "}" ). Ele também pode ser utilizado para forçar a saída incondicional de um laço de repetição (infinito ou não).
 
 ### Comandos de Controle de Repetição
-
 Permitem que um conjunto de instruções sejam executados até que uma "condição limite" seja encontrada. Os comandos são: for, while e do - while.
 
 #### Comando FOR
@@ -194,6 +189,31 @@ O formato geral sem a expressão 2 é:
 O formato geral sem as 3 expressão é:  
 
     for (;;)  
+    {  
+    declaração;  
+    }  
+
+#### Comando WHILE
+Usa-se este comando quando queremos que uma tarefa, que não envolva necessariamente uma contagem, seja executada enquanto a "condição logica" for verdadeira (==1). Quando esta é falsa (==0) pula-se para a "declaração" seguinte ao laço. O teste da "condição logica" é executado antes de entrar no laço. Portanto se a condição for falsa(==0) no primeiro teste a "declaração" ou "declarações" que estão dentro do laço não serão executadas nenhuma vez.  
+
+O formato geral quando se tem uma única declaração é:  
+
+    while (condição)  
+    declaração;  
+
+O formato geral quando se tem mais de uma declaração é:  
+
+    while (condição)  
+        {  
+        declaração;  
+        declaração;  
+        }  
+
+Assim como no "for", o comando while" sem a condição lógica gera um "loop infinito", pois este será sempre verdade.  
+
+O formato geral é:
+
+    while (1)  
     {  
     declaração;  
     }  
