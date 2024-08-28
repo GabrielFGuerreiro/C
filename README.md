@@ -232,3 +232,26 @@ O formato geral é:
     declaração;  
     }while (condição);  
 
+## Funções
+Função é um conjunto de instruções e/ou declarações que cumprem determinada tarefa, sendo referenciada por um nome. A principal razão para usar funções é dividir uma tarefa em outras pequenas tarefas que simplificam, organizam e reduzem o programa como um todo. Qualquer sequência de instruções ou declarações que apareçam no programa mais de uma vez é candidata a se transformar em uma função. A função é escrita no programa uma única, mas pode ser executado muitas vezes durante o programa.
+
+### Formato de uma função em C
+A estrutura de uma função na linguagem C é semelhante à estrutura da função main(). A única diferença é que a função main() tem um nome especial.
+
+O formato de uma função em C é:
+
+<tipo_de_retorno> <nome_da_funcao> (<parâmetros ou informações e seus tipos>)
+{
+  declaração de variáveis;
+  comandos;
+  funções;
+  retorno da função;
+}
+
+● tipo_de_retorno 🡪 É o tipo do dado que a função retornará;
+● nome_da_funcao 🡪 É o nome pelo qual a função será chamada;
+● parâmetros ou informações ou lista de argumentos 🡪São as informações que a função recebe para executar a tarefa definida;
+● declaração de variáveis 🡪 Declaração dos tipos das variáveis locais a função e que são utilizados apenas dentro nesta;
+● comandos 🡪 São os comandos da linguagem C que executam as tarefas definidas para a função;
+● funções 🡪 São chamadas para funções de biblioteca e/ou outras funções desenvolvidas pelo programador;
+● retorno da função 🡪 Retorna uma informação para a função que chamou.
