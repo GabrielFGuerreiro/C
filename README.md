@@ -217,3 +217,18 @@ O formato geral é:
     {  
     declaração;  
     }  
+
+
+#### Comando DO - WHILE
+Este comando é semelhante ao anterior. A diferença é que a "declaração" ou "declarações" são executadas pelo menos uma vez e depois é avaliada a "condição logica", pois a "condição" está no final do loop (após o while). Se a "condição" for verdadeira (==1) a "declaração" ou "declarações" são executadas novamente. Se a "condição logica" for falsa(==0) a execução do programa continua na "declaração" seguinte ao loop.   
+
+É necessário sempre utilizar "{" e "}" entre o "do" e o "while", tanto para uma como para mais declarações. Não existe loop infinito.  
+
+O formato geral é:
+
+    do  
+    {  
+    declaração;  
+    declaração;  
+    }while (condição);  
+
