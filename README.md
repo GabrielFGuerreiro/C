@@ -321,3 +321,14 @@ Exemplo:
       float soma(a,b)  
     	 {  
      	 }  
+
+
+## Matrizes ou Vetores Numéricos
+
+#### Compreendendo o que são matrizes ou vetores
+Uma matriz ou vetor é um conjunto de dados que pode armazenar múltiplos valores do mesmo tipo. Os valores de um vetor são acessados através de um índice. Este índice é que caracteriza uma matriz ou vetor.
+
+#### Definição
+Matrizes ou vetores são variáveis compostas que agrupam dados do mesmo tipo e são referenciadas através de um índice.
+
+Na linguagem C, todos os vetores são montados numa sequencia continua de memoria, ou seja, o endereço mais baixo corresponde ao primeiro elemento, e o endereço mais alto ao ultimo elemento.
