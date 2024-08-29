@@ -258,7 +258,6 @@ O formato de uma função em C é:
 
 
 ### Chamando uma função
-
 Chamar uma função é desviar o fluxo do programa para que uma tarefa seja executada. Terminada esta tarefa chamada, o fluxo do programa retorna para a declaração seguinte a da chamada da função.  
 Varias funções, como o printf(), são desenvolvidas pelo fabricante do compilador e juntadas ao programa pelo linkeditor. São as chamadas funções de biblioteca.  
 Podemos também escrever nossas próprias funções no programa e chama-las como fazemos com as funções de biblioteca.
@@ -273,3 +272,14 @@ Exemplo:
   soma(a,b);   chama a função "soma" e passa as informações "a" e "b".  
 
   imprimir();  chama a função "imprimir" sem passar parâmetros.  
+
+
+### Passagem de parâmetros ou informações
+Parâmetros ou informações ou argumentos de uma função são as informações que a função recebe para executar a tarefa para a qual foi desenvolvida.  
+
+Existem dois métodos de passagem de parâmetros/informações para uma função.
+
+● O 1º método é a passagem de parâmetros por "valor" ou "copia".
+
+Neste método, na função que chamou é feita uma copia dos valores a serem enviados para a função chamada. Dessa forma os valores originais não podem ser alterados, pois a função chamada manipula apenas as copias dos mesmos. Na função chamada são criadas variáveis do mesmo tipo da função que chamou que receberão as copias destes valores.  
+Lembrando que as variáveis que recebem as informações da função que chamou e as que estão dentro da função chamada são variáveis locais. Portanto, quando a execução da função se encerrar as variáveis são destruídas ou seja, o seu conteúdo é perdido.  
