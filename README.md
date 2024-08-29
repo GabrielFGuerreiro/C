@@ -293,3 +293,31 @@ O formato geral é:
   return;                      não retorna valor  
              
 A utilização do comando "return" é opcional quando não há retorno de valor.
+
+### Definindo o tipo do valor de retorno
+Os valores devolvidos pelo comando "return" são inteiros por default. Quando não existe valor devolvido e a função que chamou estiver esperando algum valor, recebera lixo e ocorrera um erro de logica não detectável pelo compilador.  
+As funções podem devolver valores não inteiros. Para isto devemos especificar claramente o "tipo_de_retorno" na função chamada e declarar também este mesmo tipo na função de chamada.  
+
+O formato geral para chamar uma função que retorna um valor inteiro é:  
+
+  <nome_da_função> (parâmetros ou informações);  
+
+Deve-se também declarar o tipo da informação retornada na função que chamou junto com as variáveis locais desta.  
+
+O formato geral é:                         Exemplo:  
+  <tipo> <nome_da_funcao>();                  float soma();  
+
+Lembrando que o formato para se declarar uma variável simples é:  
+  <tipo> <nome_da_variável>;  
+Exemplo:  
+  float número;  
+
+Note que a declaração do tipo de "retorno da função" é semelhante à declaração de uma variável simples.  
+
+O formato geral para declarar uma função que retorna um valor diferente de inteiro é:  
+  <tipo_de_retorno> <nome_da_funcao>(parâmetros ou informações);  
+
+Exemplo:  
+      float soma(a,b)  
+    	 {  
+     	 }  
