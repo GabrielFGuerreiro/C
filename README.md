@@ -255,3 +255,21 @@ O formato de uma função em C é:
 ● comandos 🡪 São os comandos da linguagem C que executam as tarefas definidas para a função;
 ● funções 🡪 São chamadas para funções de biblioteca e/ou outras funções desenvolvidas pelo programador;
 ● retorno da função 🡪 Retorna uma informação para a função que chamou.
+
+
+### Chamando uma função
+
+Chamar uma função é desviar o fluxo do programa para que uma tarefa seja executada. Terminada esta tarefa chamada, o fluxo do programa retorna para a declaração seguinte a da chamada da função.  
+Varias funções, como o printf(), são desenvolvidas pelo fabricante do compilador e juntadas ao programa pelo linkeditor. São as chamadas funções de biblioteca.  
+Podemos também escrever nossas próprias funções no programa e chama-las como fazemos com as funções de biblioteca.
+
+A sintaxe para chamar uma função é:  
+
+        <nome_da_funcao>(<parâmetros ou informações>);  
+
+Exemplo:  
+  printf("teste");  chama a função de biblioteca "printf" e passa a informação "teste".  
+
+  soma(a,b);   chama a função "soma" e passa as informações "a" e "b".  
+
+  imprimir();  chama a função "imprimir" sem passar parâmetros.  
