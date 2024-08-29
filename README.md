@@ -283,3 +283,13 @@ Existem dois métodos de passagem de parâmetros/informações para uma função
 
 Neste método, na função que chamou é feita uma copia dos valores a serem enviados para a função chamada. Dessa forma os valores originais não podem ser alterados, pois a função chamada manipula apenas as copias dos mesmos. Na função chamada são criadas variáveis do mesmo tipo da função que chamou que receberão as copias destes valores.  
 Lembrando que as variáveis que recebem as informações da função que chamou e as que estão dentro da função chamada são variáveis locais. Portanto, quando a execução da função se encerrar as variáveis são destruídas ou seja, o seu conteúdo é perdido.  
+
+### Retorno de informação de uma função
+Uma função chamada pode retornar UM ou nenhum valor a função que a chamou. Para retornar um valor a função que chamou utiliza-se o comando "return".
+
+O formato geral é: 
+  return(informação);     retorna o valor  
+  return();                     não retorna valor  
+  return;                      não retorna valor  
+             
+A utilização do comando "return" é opcional quando não há retorno de valor.
