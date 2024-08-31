@@ -377,4 +377,17 @@ Valor | Nº do elemento | Índice
 20           2             1
 30           3             2
 
+### Inicialização de vetores
+Pode-se inicializar os elementos de um vetor junto com a declaração da variável.   Para inicializar os elementos um vetor temos 2 formas:  
+
+1. Declarando o nº de elementos do vetor explicitamente.  
+
+exemplo: int notas [4] = {1,2,3,4};  
+
+2. Sem declarar o nº de elementos do vetor. Neste caso, os colchetes serão preenchido pelo pre-compilador que contara o nº de elementos da inicialização. Os colchetes "[]" são declarados vazios neste caso.  
+
+Exemplo: int notas [] = {1,2,3,4};  
+
+Um vetor só pode ser inicializado se for declarado como uma variável global
+ou static local.  
 
