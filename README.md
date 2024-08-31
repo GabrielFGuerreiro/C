@@ -353,3 +353,28 @@ float salários [50];  declara um vetor de nome "salários" do tipo
 
 
 Detalhe importante: na linguagem C NÃO há verificação de limites nos vetores. Isto significa que é possível ultrapassar o fim de um vetor e escrever em outras variáveis, ou mesmo em trechos de código de programa. É tarefa de o programador fazer com que os índices dos vetores estejam sempre dentro dos limites estabelecidos pela declaração do tamanho ou n. de elementos do vetor.  
+
+### Refenciando um elemento do vetor
+Cada um dos elementos de um vetor é referenciado individualmente por meio de um número inteiro (índice) entre colchetes "[]" após o nome do vetor. Este número tem 2 significados diferentes:  
+
+1. Na declaração do vetor ele indica o "tamanho ou n. de elementos";  
+2. Para acessar um elemento no vetor, ou seja referencia-lo, ele é chamado
+de "índice do elemento";  
+
+Quando referenciamos um elemento do vetor através do seu índice, este número especifica a posição do elemento no vetor.  
+
+Exemplos:  
+notas [4];                  referência o 5º elemento do vetor "notas"  
+salários [13];             referência o 14º elemento do vetor "salários"  
+
+Observando os exemplos acima podemos notar que o nº do elemento é um a mais que o número entre colchetes. Isso acontece por que na linguagem C as referências/índices começam em 0 e a referência/índice do ultimo elemento é o tamanho do vetor +1.  
+
+Exemplo:  
+int valores[] = {10,20,30}  
+
+Valor | Nº do elemento | Índice  
+10           1             0
+20           2             1
+30           3             2
+
+
