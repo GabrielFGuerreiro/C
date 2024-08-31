@@ -332,3 +332,24 @@ Uma matriz ou vetor é um conjunto de dados que pode armazenar múltiplos valore
 Matrizes ou vetores são variáveis compostas que agrupam dados do mesmo tipo e são referenciadas através de um índice.
 
 Na linguagem C, todos os vetores são montados numa sequencia continua de memoria, ou seja, o endereço mais baixo corresponde ao primeiro elemento, e o endereço mais alto ao ultimo elemento.
+
+### Declaração de vetores
+Para declarar um vetor, precisa-se especificar o tipo de dado desejado (tal como int, float ou double), bem como o tamanho/nº de elementos do vetor. Para especificar o tamanho, utiliza-se o operador "[]". Dentro dos colchetes coloca-se o nº de elementos que o vetor irá armazenar.
+
+O formato para declaração de um vetor é:  
+
+      <tipo> <nome_variável> [tamanho ou n. de elementos];  
+onde:  
+● tipo 🡪 define o tipo de dado dos elementos do vetor (int, float,...);  
+● nome_variável 🡪 é o nome pelo qual o vetor vai ser referenciado;  
+● tamanho 🡪 é o nº de elementos que o vetor irá armazenar.  
+
+Exemplo:  
+int notas [100];    declara um vetor de nome "notas" do tipo "int" que pode  
+                                              armazenar "100" notas  
+
+float salários [50];  declara um vetor de nome "salários" do tipo    
+                                "float"que pode armazenar "50" salários  
+
+
+Detalhe importante: na linguagem C NÃO há verificação de limites nos vetores. Isto significa que é possível ultrapassar o fim de um vetor e escrever em outras variáveis, ou mesmo em trechos de código de programa. É tarefa de o programador fazer com que os índices dos vetores estejam sempre dentro dos limites estabelecidos pela declaração do tamanho ou n. de elementos do vetor.  
