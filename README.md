@@ -391,3 +391,27 @@ Exemplo: int notas [] = {1,2,3,4};
 Um vetor só pode ser inicializado se for declarado como uma variável global
 ou static local.  
 
+### Vetores com mais de uma dimensão
+Um vetor é uma variável que pode armazenar múltiplos valores do mesmo tipo. Nos exemplos apresentados, os vetores consistiram de uma fileira de dados, ou seja, um vetor unidimensional. No entanto, a Linguagem C permite vetores bi, tri e multidimensionais.  
+
+O melhor modo de visualizar um vetor bidimensional é como uma tabela com linhas e colunas. Por exemplo, ao declarar-se um vetor bidimensional, o primeiro valor que for especificado informará o número de linhas, e o segundo valor, o número de colunas:  
+
+Exemplo:  
+int tabela [2] [3]; vetor bidimensional (linha 2 coluna 3)    
+           lin col    
+Se um vetor contem três dimensões, visualize-se como varias paginas, cada uma contendo uma tabela bidimensional.  
+
+Por exemplo, ao declarar-se um vetor tridimensional, o primeiro valor declarado informará a pagina, o segundo valor declarado informará o número de linhas, e o terceiro valor, o número de colunas:  
+
+Exemplo:  
+int tabela [2] [3] [4]; vetor tridimensional (pagina 2 linha 3 coluna 4)  
+           pag lin col  
+
+      Página 0			         	Página 1					  
+	      	   colunas	      		         colunas  
+	         0  1  2  3			           0  1  2  3  
+	      0	|_||_||_||_|         		0 |_||_||_||_|  
+      	  1 |_||_||_||_|	            1 |_||_||_||_|  linhas
+	      2	|_||_||_||_|                2 |_||_||_||_|  
+
+OBS IMPORTANTE: Apesar da linguagem C utilizar o conceito de "vetor multi-dimensional" os elementos destes vetores são armazenados na memoria de forma linear (continua), ou seja, todos os elementos do vetor estão um do lado do outro na memória do computador. Isso possibilita acessar os elementos do vetor multidimensionais como se fossem vetores unidimensionais.
