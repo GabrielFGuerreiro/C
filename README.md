@@ -415,3 +415,15 @@ int tabela [2] [3] [4]; vetor tridimensional (pagina 2 linha 3 coluna 4)
 	      2	|_||_||_||_|                2 |_||_||_||_|  
 
 OBS IMPORTANTE: Apesar da linguagem C utilizar o conceito de "vetor multi-dimensional" os elementos destes vetores são armazenados na memoria de forma linear (continua), ou seja, todos os elementos do vetor estão um do lado do outro na memória do computador. Isso possibilita acessar os elementos do vetor multidimensionais como se fossem vetores unidimensionais.
+
+### Inicialização de vetores com mais de uma dimensão
+Os vetores de mais de uma dimensão são inicializados da mesma forma que os vetores de uma única dimensão. Os elementos são colocados entre o abre chave "{" e o fecha chave "}" depois do operador atribuição "=" e seus elementos separados por vírgulas Pode-se inicializar um vetor multi-dimensional usando as chaves "{}" e a separação dos elementos por vírgulas"," internamente para melhor visualizar as suas linhas e colunas. Esta notação é utilizada para apenas para facilitar a visualização.  
+
+Exemplo:     
+           lin    col   
+int tabela [2]    [3]   = {{1,2,3} , {4,5,6}};  
+          		              linha 1   linha 2  
+Esta mesma inicialização poderia ser apenas com um abre chave "{" e um fecha chave "}" simplesmente.  
+
+Exemplo:  
+int tabela [2] [3] = {1,2,3,4,5,6};  
