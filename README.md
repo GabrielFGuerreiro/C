@@ -433,3 +433,22 @@ int tabela [2] [3] = {1,2,3,4,5,6};
 ### Compreendendo o que são Vetores de série de caracteres
 Um vetor de string é uma variável do tipo "char" que armazena mais de um caracter, ou seja, uma série de caracteres, onde cada um destes caracteres ocupa um byte na memoria, um do lado do outro em sequencia.  
 Um vetor de string pode ser acessado de 2 formas, caracter por caracter através do "índice" de cada um dos elementos do vetor (como nos vetores numérico), ou como uma string acessando todos os caracteres até encontrar o finalizador.  
+
+### Inicializando um vetor de string
+Um vetor de string também só pode ser inicializado se for declarado como variável global ou estática local.   
+
+Podemos inicializar um vetor de strings de 2 formas:  
+
+A) Inicializando caracter por caracter como nos vetores numérico. Neste caso, o finalizador '\0' deve ser colocado explicitamente, para que os elementos deste vetor possam ser utilizados como uma única string. Não colocando o finalizador '\0' não se pode acessar o conteúdo como string apenas caracter por caracter (através do índice).  
+
+Exemplo:  
+    char nome [] = {'F','Á,'T','É,'C'};    s/ finalizador. Não pode acessar como string  
+    char nome [] = {'F','Á,'T','É,'C','\0'};   c/ finalizador. Pode acessar como string  
+
+
+B) Inicializando como string. Neste caso o finalizador é colocado automaticamente. Lembrando ainda que o finalizador também é um caracter, portanto ocupa uma posição no vetor.  
+
+Exemplo:  
+    char nome [] = {"FATEC"};   sem contar os caracteres da string, o pré compilador faz a contagem  
+
+    char nome [6] = {"FATEC"};   contando os caracteres da string  (5 letras + 1 do finalizador)  
