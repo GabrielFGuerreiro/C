@@ -427,3 +427,9 @@ Esta mesma inicialização poderia ser apenas com um abre chave "{" e um fecha c
 
 Exemplo:  
 int tabela [2] [3] = {1,2,3,4,5,6};  
+
+## Vetores com Série de Caracteres (string)
+
+### Compreendendo o que são Vetores de série de caracteres
+Um vetor de string é uma variável do tipo "char" que armazena mais de um caracter, ou seja, uma série de caracteres, onde cada um destes caracteres ocupa um byte na memoria, um do lado do outro em sequencia.  
+Um vetor de string pode ser acessado de 2 formas, caracter por caracter através do "índice" de cada um dos elementos do vetor (como nos vetores numérico), ou como uma string acessando todos os caracteres até encontrar o finalizador.  
