@@ -452,3 +452,33 @@ Exemplo:
     char nome [] = {"FATEC"};   sem contar os caracteres da string, o pré compilador faz a contagem  
 
     char nome [6] = {"FATEC"};   contando os caracteres da string  (5 letras + 1 do finalizador)  
+
+
+### Funções de biblioteca usando uma string.
+● printf() 🡪 escreve caracteres formatados na saída padrão.(no caso vídeo)  
+
+A forma geral da função printf() é:  
+          printf("<serie de controle>", lista de argumentos);  
+
+O código de formatação para uma string é "%s". Para string pode-se indicar o "tamanho do campo", informação no campo "alinhando" ou "justificado" (à direita ou à esquerda).  
+
+O formato geral é:  
+                     % <alinhamento> <tamanho de campo> <código de formatação>  
+
+Exemplo:  
+%10s          define o alinhamento à direita, tamanho de campo com 10 posições  
+%-10s         define o alinhamento à esquerda, tamanho de campo com 10 posições  
+
+● scanf() 🡪 lê caracteres formatados da entrada padrão. (no caso teclado)  
+
+A forma geral da função scanf() é:  
+              scanf("<serie de controle>", lista de argumentos);  
+Temos outras 2 funções de biblioteca que funcionando somente com uma string, são elas:  
+
+● gets() 🡪 lê uma serie de caracteres da entrada padrão (no caso teclado) + a tecla ENTER.  
+A forma geral da função gets() é:   
+                                  gets(variável);   
+
+● puts() 🡪 escreve uma serie de caracteres na saída padrão.(no caso vídeo)  
+A forma geral da função puts() é:  
+                                puts(variável);  
