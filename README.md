@@ -482,3 +482,22 @@ A forma geral da função gets() é:
 ● puts() 🡪 escreve uma serie de caracteres na saída padrão.(no caso vídeo)  
 A forma geral da função puts() é:  
                                 puts(variável);  
+
+
+### Um vetor de strings
+Uma string já é um vetor unidimensional. Portanto, se juntarmos vários vetores de strings, teremos um vetor bidimensional.   
+
+A forma geral de um vetor de strings é:  
+          char <nome_da_variável> [num_de_strings][compr_das_strings];  
+
+Exemplo:  
+char semana [7][14];       vetor bidimensional do tipo "char" com 7 linhas(strings) e  
+                                       14 colunas (strings com 14 caracteres no máximo)  
+
+Fazendo uma comparação com a declaração de um vetor numérico:  
+
+int tabela [2][3];             vetor bidimensional do tipo "int" de nome "tabela" com
+                                                           2 linha e 3 coluna  
+
+Obs:  
+Nos 2 casos as declarações são exatamente iguais. A diferença está na forma de interpretá-las. O 1º exemplo usa caracteres e o 2º exemplo usa números.  
