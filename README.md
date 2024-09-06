@@ -501,3 +501,28 @@ int tabela [2][3];             vetor bidimensional do tipo "int" de nome "tabela
 
 Obs:  
 Nos 2 casos as declarações são exatamente iguais. A diferença está na forma de interpretá-las. O 1º exemplo usa caracteres e o 2º exemplo usa números.  
+
+
+### Acessando uma string no vetor de strings
+Para acessar uma string usa-se apenas o primeiro índice do vetor que indica o "numero da string".  
+
+A forma geral para acessar uma string no vetor de strings é:  
+                        <nome_da_variável> [num_da_strings];  
+
+Exemplo:  
+semana [2];      acessa a 3º linha (string) do vetor "semana"  
+
+Por que se utiliza apenas o índice de "linha"/"numero da string" para acessar uma string num vetor bidimensional?  
+Porque as funções de bibliotecas printf (usando o código de formatação "%s") e puts colocam na tela todos os elementos de um vetor de caracteres (string) até encontrar o finalizador '\0'. Isto possibilita utilizar apenas o índice do "num_da_string" "linha" para acessar todo o conteúdo desta linha do vetor de caracteres.  
+
+Além disso, como os vetores numérico também se pode acessar qualquer caracter de um vetor de string utilizando-se os dois índices. Um vetor de string não é diferente de um vetor numérico.  
+
+Exemplo:  
+
+vetor de string  
+semana [0] [2];      acessa o elemento da 1º linha(string), 3º coluna (caracter)  
+             lin col  
+
+vetor numérico  
+tabela [0] [2];      acessa o número da 1º linha, 3º Coluna  
+             lin col  
