@@ -526,3 +526,16 @@ semana [0] [2];      acessa o elemento da 1º linha(string), 3º coluna (caracte
 vetor numérico  
 tabela [0] [2];      acessa o número da 1º linha, 3º Coluna  
              lin col  
+
+
+### Inicialização de um vetor de strings
+Um vetor de strings é um vetor bidimensional. Assim, para inicializa-lo coloca-se o operador atribuição "=", o abre chave “{“, as strings entre aspas ("), separadas por vírgula "," e o fecha chave “}”.  
+
+Exemplo:  
+char semana [7] [14] = { "Domingo" ,  
+                                 "Segunda-feira",  
+                                 "Terca-feira",  
+                                 "Quarta-feira",  
+                                 "Quinta-feira",  
+                                 "Sexta-feira",  
+                                 "Sabado",};  
