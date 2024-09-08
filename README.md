@@ -539,3 +539,6 @@ char semana [7] [14] = { "Domingo" ,
                                  "Quinta-feira",  
                                  "Sexta-feira",  
                                  "Sabado",};  
+
+## Operadores 
+Operador é um símbolo que representa uma operação especifica que pode ser executada em certo dado. O valor do dado, que pode ser uma variável ou uma constante é chamado de operando.
