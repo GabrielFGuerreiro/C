@@ -552,3 +552,334 @@ else
 
 #endif // ex2
 
+#ifdef ex3
+/* Escreva um programa para controle de um cadastro de clientes. Para cada registro sera' armazenado nome, email e celular
+numa estrutura de dados. A unica estrutura de dados e' uma variavel LOCAL na funcao main().
+Escreva os registros direto no arquivo. (utilize a funcao fseek quando necessario). NAO pode usar vetor de estruturas.
+Utilize ponteiros para passar parametros para as funcoes.
+    O programa deve ter as seguintes opcoes: (cada opcao do menu e' um funcao)
+    1 - inclui registros
+    2 - listar todos os registros
+    3 - pesquisar registro pelo nome
+    4 - altera registro
+    5 - exclui registro
+    6 - saida*/
+
+struct infos{char nome[15];char email[10];char tel[15]};
+
+
+entrada(struct infos *pct,FILE *arq,int *pcont);
+listar(struct infos *pct,FILE *arq);
+pesquisar_ct(struct infos *pct,FILE *arq);
+alterar(struct infos *pct,FILE *arq);
+excluir(struct infos *pct,FILE *arq);
+saida();
+
+main()
+{
+static struct infos clientes;
+struct infos *pct;
+pct=&clientes;
+
+FILE *arq;
+
+char menu;
+
+int cont=1;
+int *pcont;
+pcont=&cont;
+
+while(1){
+setlocale(LC_ALL,"");
+printf("            Menu\n\n 1 - Cadastrar cliente\n 2 - Listar clientes\n 3 - Pesquisar um cliente pelo nome completo\n");
+printf(" 4 - Alterar cliente\n 5 - Excluir cliente\n 6 - Encerrar programa\n");
+printf("\nDigite sua opção\n");
+scanf(" %c",&menu);
+
+
+switch(menu)
+{
+
+case '1':
+
+    system("cls");
+    entrada(pct,arq,pcont);
+    *pcont=*pcont+1;
+
+    break;
+
+case '2':
+
+    system("cls");
+    listar(pct,arq);
+
+    break;
+
+case '3':
+
+    system("cls");
+    pesquisar_ct(pct,arq);
+
+    break;
+
+case '4':
+
+    system("cls");
+    alterar(pct,arq);
+
+    break;
+
+case '5':
+
+    system("cls");
+    excluir(pct,arq);
+
+    break;
+
+case '6':
+
+    system("cls");
+    saida();
+
+    break;
+
+default:
+
+    system("cls");
+    printf("Voce escolheu uma opcao invalida\n");
+
+    break;
+}
+
+}
+
+}
+
+
+
+entrada(struct infos *pct,FILE *arq,int *pcont)
+{
+
+printf("[%dº Cliente]\n",*pcont);
+printf("\nDigite o nome do cliente:");
+scanf(" %s",&pct->nome);
+
+printf("\nDigite o telefone do cliente:");
+scanf(" %s",&pct->tel);
+
+printf("\nDigite o e-mail do cliente:");
+scanf(" %s",&pct->email);
+printf("\n");
+
+
+arq=fopen("Clientes.txt","a");
+
+if(arq==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+fwrite(pct,sizeof(*pct),1,arq);
+
+fclose(arq);
+}
+
+
+
+
+listar(struct infos *pct,FILE *arq)
+{
+
+if((arq=fopen("Clientes.txt","r"))==NULL)
+{
+    printf("Erro na abertura do arquivo \n");
+    exit(0);
+}
+
+int i;
+
+for(i=0;fread(pct,sizeof(*pct),1,arq)!=0;i++)
+{
+    printf("Nome do cliente: %s\n",pct->nome);
+    printf("Telefone do cliente: %s\n",pct->tel);
+    printf("E-mail do cliente: %s\n",pct->email);
+}
+
+
+fclose(arq);
+}
+
+
+
+
+pesquisar_ct(struct infos *pct,FILE *arq)
+{
+int cont=0,i=0,x=0;
+char z[15];
+
+printf("Pesquise o contato pelo nome\n");
+scanf("%s",z);
+
+if((arq=fopen("Clientes.txt","r"))==NULL)
+{
+    printf("Erro ao abrir o arquivo\n");
+    exit(0);
+}
+
+for(cont=0;fread(pct,sizeof(*pct),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pct).nome[i])
+            break;
+    }
+
+if(z[i]=='\0' && (*pct).nome[i]=='\0')
+{
+    printf("Nome:%s\n",pct->nome);
+    printf("Telefone:%s\n",pct->tel);
+    printf("E-mail:%s\n",pct->email);
+    return 0;
+}
+
+}
+
+
+if(x!=1)
+{
+printf("\nNome inexistente\n");
+}
+
+fclose(arq);
+}
+
+
+
+
+alterar(struct infos *pct,FILE *arq)
+{
+int cont,i,x,y;
+char z[15];
+
+printf("Pesquise o contato pelo nome para alterar o registro\n");
+scanf("%s",z);
+
+if((arq=fopen("Clientes.txt","r+"))==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+for(cont=0;fread(pct,sizeof(*pct),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pct).nome[i])
+            break;
+    }
+
+    if(z[i]=='\0' && (*pct).nome[i]=='\0')
+    {
+        printf("\nDigite o novo nome do cliente:");
+        scanf("%s",&pct->nome);
+
+        printf("\nDigite o novo telefone do cliente:");
+        scanf("%s",&pct->tel);
+
+        printf("\nDigite o novo e-mail do cliente:");
+        scanf("%s",&pct->email);
+        x=1;
+
+        y=cont*sizeof(*pct);
+        fseek(arq,y,0);
+        fwrite(pct,sizeof(*pct),1,arq);
+        break;
+    }
+}
+fclose(arq);
+
+if(x!=1)
+{
+    printf("\nNome inexistente\n");
+}
+
+}
+
+
+
+
+excluir(struct infos *pct,FILE *arq)
+{
+int cont,i,x,y;
+char z[15];
+
+printf("Pesquise o contato pelo nome para excluir o registro\n");
+scanf("%s",z);
+
+if((arq=fopen("Clientes.txt","r+"))==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+for(cont=0;fread(pct,sizeof(*pct),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pct).nome[i])
+            break;
+    }
+
+    if(z[i]=='\0' && (*pct).nome[i]=='\0')
+    {
+        pct->nome[0]='\0';
+        pct->tel[0]='\0';
+        pct->email[0]='\0';
+
+        x=1;
+
+        y=cont*sizeof(*pct);
+        fseek(arq,y,0);
+        fwrite(pct,sizeof(*pct),1,arq);
+        printf("Registro excluido com sucesso!\n");
+        break;
+    }
+}
+fclose(arq);
+
+if(x!=1)
+{
+    printf("\nNome inexistente\n");
+}
+
+}
+
+
+
+saida()
+{
+
+char resp;
+
+do
+{
+printf("Deseja encerrar o programa?(S/N)\n");
+resp=getch();
+if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+    {
+        printf("Valor inválido\n");
+    }
+}while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+if(resp=='S' || resp=='s')
+    {
+        printf("\nAté logo!\n");
+        exit(0);
+    }
+else
+    system("cls");
+
+}
+#endif //ex3
