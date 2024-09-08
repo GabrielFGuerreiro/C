@@ -542,3 +542,9 @@ char semana [7] [14] = { "Domingo" ,
 
 ## Operadores 
 Operador é um símbolo que representa uma operação especifica que pode ser executada em certo dado. O valor do dado, que pode ser uma variável ou uma constante é chamado de operando.
+
+### Operador atribuição simples
+A atribuição simples de variáveis se faz com o operador sinal de "=". Ele atribui um valor ou resultado de uma expressão, que está a sua direita, para a variável especificada a sua esquerda.  
+
+Sua forma geral é:  
+variável = expressão;           ou           variável = constante;  
