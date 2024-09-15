@@ -577,3 +577,17 @@ Porém, se o operador incrementa está "depois" da variável, primeiro se atribu
 
     x = 10;  
     y = x++;      atribui x à y e incrementa x 🡪 x = 11 e y = 10  
+
+### Operadores relacionais
+Relacional significa o relacionamento que os valores tem entre si. Quando se compara 2 valores utilizando-se os operadores relacionais, obtém-se os seguintes resultados:  
+0  🡪 falso  
+1  🡪 verdadeiro  
+
+Os operadores relacionais são:  
+
+    <  🡪 menor que  
+    <= 🡪 menor ou igual a  
+    >  🡪 maior que  
+    >= 🡪 maior ou igual a  
+    == 🡪 igual  
+    != 🡪 diferente  
