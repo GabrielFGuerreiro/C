@@ -591,3 +591,12 @@ Os operadores relacionais são:
     >= 🡪 maior ou igual a  
     == 🡪 igual  
     != 🡪 diferente  
+
+### Operadores lógicos
+Estes operadores são muito utilizados para combinar logicamente os resultados (0 ou 1) obtidos pelos operadores relacionais. Ou seja, primeiro se avalia a relação e com este resultado faz-se a operação logica.  
+
+Os operadores lógicos são:  
+
+    && (operação lógica AND) 🡪 retorna 1 se os dois operandos forem verdadeiros  
+    || (operação lógica OR) 🡪 retorna 1 se um ou dois operandos forem verdadeiros  
+    !  (operador lógico NOT) 🡪 inverte o valor do operando  
