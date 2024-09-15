@@ -548,3 +548,32 @@ A atribuição simples de variáveis se faz com o operador sinal de "=". Ele atr
 
 Sua forma geral é:  
 variável = expressão;           ou           variável = constante;  
+
+### Operadores aritméticos
+Os operadores aritméticos são aqueles que operam sobre números e/ou expressões numéricas, resultando valores numéricos.
+
+Os operadores aritméticos são:  
+    +  🡪 adição  
+    -  🡪 subtração  
+    *  🡪 multiplicação  
+    /  🡪 divisão  
+    %  🡪 devolve o resto da divisão inteira (modulo)  
+    -  🡪 menos unario (transforma um nº positivo em negativo e vice-versa)  
+    ++ 🡪 incrementa  
+    -- 🡪 decrementa  
+
+Os operadores incrementa e decrementa são equivalentes as seguintes operações:   
+x = x + 1 🡪 ++x  ou x++  
+x = x - 1 🡪 --x  ou x--  
+
+Embora as expressões ++x e x++ parecem equivalentes, elas agem de forma diferente em expressões com o operador de atribuição simples "=":  
+ 
+Quando o operador incrementa está "antes" da variável, primeiro se incrementa a variável para depois atribuir o resultado.  
+
+    x = 10;  
+    y = ++x;        incrementa x e atribui à y 🡪 x = 11 e y = 11  
+
+Porém, se o operador incrementa está "depois" da variável, primeiro se atribui o valor a variável para depois incrementar o conteúdo da variável atribuída.   
+
+    x = 10;  
+    y = x++;      atribui x à y e incrementa x 🡪 x = 11 e y = 10  
