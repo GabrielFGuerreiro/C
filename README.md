@@ -629,3 +629,23 @@ printf(" NOT               ~0x2264 -->      0x%x\n",~0x2264);     /* dd9b */
 printf(" desloc. a direita  a >> 3 --> %3d  0x%x\n",a>>3,a>>3);   /* 0x0c */  
 printf(" desloc. a esquerda a << 1 --> %3d  0x%x\n",a<<1,a<<1);   /* 0xc8 */  
 }  
+
+
+### Atribuição composta
+A atribuição composta é muito utilizada para abreviar expressões na linguagem C. É uma combinação do operador atribuição simples "=" com os operadores aritméticos e bit a bit.  
+
+Sua forma geral é  
+           variável  operador= expressão;  
+
+Os operadores de atribuição compostas são:  
+
+        +=  operação adição e atribuição  
+        -=  operação subtração e atribuição  
+        *=  operação multiplicação e atribuição  
+        /=  operação divisão e atribuição  
+        %=  operação resto(modulo) e atribuição  
+        >>= operação deslocamento à direita e atribuição  
+        <<= operação deslocamento à esquerda e atribuição  
+        &=  operação AND e atribuição  
+        ^=  operação OU EXCLUSIVO e atribuição  
+        |=  operação OU e atribuição  
