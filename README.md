@@ -600,3 +600,32 @@ Os operadores lógicos são:
     && (operação lógica AND) 🡪 retorna 1 se os dois operandos forem verdadeiros  
     || (operação lógica OR) 🡪 retorna 1 se um ou dois operandos forem verdadeiros  
     !  (operador lógico NOT) 🡪 inverte o valor do operando  
+
+
+### Operadores bit-a-bit
+Os operadores bit-a-bit são recursos que a linguagem C possui que a torna próxima da linguagem de maquina. Estes operadores atuam combinando as operações logica diretamente nos bits de um ou dois byte.  
+
+Os operadores bit-a-bit são:  
+
+● &  (AND) 🡪 retorna 1 se os dois operandos forem verdadeiros  
+● |  (OU) 🡪 retorna 1 se um ou dois operandos forem verdadeiros  
+● ^ (OU EXCLUSIVO) 🡪 retorna 1 se os operandos forem ≠ entre si  
+● ~  (NOT) 🡪 inverte o operando  
+● >> (deslocamento para direita) 🡪 desloca para a direita e preenche a esquerda com zeros. Equivale a / 2  
+● << (deslocamento para esquerda) 🡪 desloca para a esquerda e preenche a direita com zeros. Equivale a * 2  
+
+Exemplo:  
+main()  
+{  
+int a,b;  
+a = 0x64; /* notação hexadecimal*/   /* 100 = 0110 0100 */    
+b = 0x32;               /* 50  = 0011 0010 */    
+
+printf(" Operadores bit-a-bit\n");  
+printf(" AND                 a & b --> %3d  0x%x\n",a & b,a & b); /* 0x20 */  
+printf(" OU                  a | b --> %3d  0x%x\n",a | b,a | b); /* 0x76 */  
+printf(" OU EXCLUSIVO        a ^ b --> %3d  0x%x\n",a ^ b,a ^ b); /* 0x56 */  
+printf(" NOT               ~0x2264 -->      0x%x\n",~0x2264);     /* dd9b */  
+printf(" desloc. a direita  a >> 3 --> %3d  0x%x\n",a>>3,a>>3);   /* 0x0c */  
+printf(" desloc. a esquerda a << 1 --> %3d  0x%x\n",a<<1,a<<1);   /* 0xc8 */  
+}  
