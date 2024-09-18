@@ -649,3 +649,9 @@ Os operadores de atribuição compostas são:
         &=  operação AND e atribuição  
         ^=  operação OU EXCLUSIVO e atribuição  
         |=  operação OU e atribuição  
+
+### Operadores de ponteiros
+Os operadores de ponteiros são:  
+*operador de conteúdo🡪 lê o conteúdo de uma variável apontado por um ponteiro  
+&operador de endereço🡪 atribui o endereço de um tipo de dado a um ponteiro  
+
