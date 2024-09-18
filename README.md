@@ -655,3 +655,12 @@ Os operadores de ponteiros são:
 *operador de conteúdo🡪 lê o conteúdo de uma variável apontado por um ponteiro  
 &operador de endereço🡪 atribui o endereço de um tipo de dado a um ponteiro  
 
+### Operadores diversos
+Os operadores diversos são:  
+(  ) operador parênteses     determina a prioridade das operações  
+[  ] operador colchetes     define o tamanho do vetor ou seu índice  
+-> ponteiro_variável -> nome_membro     obtém-se o conteúdo de um membro de estrutura  
+.  nome_variável . nome_membro     obtém-se o conteúdo de um membro de uma estrutura  
+
+O operador "sizeof" retorna a quantidade de bytes que a variável ocupa na memoria. O operando pode ser um dado composto (vetor ou estrutura) ou simples (int, char, etc...). O formato geral é:  
+sizeof(nome da variável)      calcula o número de bytes da variável  
