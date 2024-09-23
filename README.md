@@ -664,3 +664,51 @@ Os operadores diversos são:
 
 O operador "sizeof" retorna a quantidade de bytes que a variável ocupa na memoria. O operando pode ser um dado composto (vetor ou estrutura) ou simples (int, char, etc...). O formato geral é:  
 sizeof(nome da variável)      calcula o número de bytes da variável  
+
+
+### Tabela de prioridades dos operadores
+-Maior prioridade-  
+1 -  (  ) operador parênteses: determina a prioridade das operações  
+     [  ] operador colchetes: indexação de vetores  
+     ->   ponteiro_variável -> nome_membro  
+     .    nome_variável . nome_membro  
+2 -  !  operador logico NOT  
+     ~  operador bit-a-bit NOT    
+     ++ incremento de 1    
+     -- decremento de 1  
+     -  menos unário (transforma um n. positivo em negativo e vice-versa)  
+     *  operador de conteúdo (lê o conteúdo apontado por um apontador)  
+     &  operador de endereço (atribui o endereço de um tipo de dados)  
+     sizeof(nome da variável) -->determina o tamanho em bytes da variável  
+3 -  *   multiplicação  
+     /   divisão  
+     %   devolve o resto da divisão inteiro (modulo)  
+4 -  +   adição  
+     -   subtração  
+5 -  >> deslocamento para direita
+     << deslocamento para esquerda  
+6 -  <  menor que  
+     <= menor ou igual a  
+     >  maior que  
+     >= maior ou igual a  
+7 -  == igual  
+     != diferente  
+8 -  &  operador bit a bit AND  
+9 -  ^  operador bit a bit OU EXCLUSIVO  
+10 - |  operador bit a bit OU          
+11 - && operação  logica AND  
+12 - || operação logica OR  
+13 - ?: substitui a declaração if else  
+14 - =  operação de atribuição  
+     += operação soma e atribuição  
+     -= operação subtração e atribuição  
+     *= operação multiplicação e atribuição  
+     /= operação divisão e atribuição  
+     %= operação resto e atribuição  
+     >>= operação deslocamento à direita e atribuição  
+     <<= operação deslocamento à esquerda e atribuição  
+     &= operação AND e atribuição  
+     ^= operação OU EXCLUSIVO e atribuição  
+     |= operação OU e atribuição  
+15 - , usado no for para colocar varias condições  
+-Menor prioridade-  
