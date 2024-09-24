@@ -755,3 +755,12 @@ struct tipos        "novo tipo de variável" definida pelo usuário
     long c;  
     };  
 struct tipos números;      variável do tipo "struct tipos" de nome "números"  
+
+### Referência aos membros de uma estrutura
+Para referenciar um "membro" da estrutura de dados usamos o operador ponto (.) no seguinte formato:  
+        <nome_variável>.<membro>;  
+
+Exemplo: 
+    números.a  
+    números.b  
+    números.c  
