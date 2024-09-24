@@ -712,3 +712,11 @@ sizeof(nome da variável)      calcula o número de bytes da variável
      |= operação OU e atribuição  
 15 - , usado no for para colocar varias condições  
 -Menor prioridade-  
+
+
+## Estrutura de Dados
+
+### Definição
+Estrutura é uma variável composta, formada por uma ou mais variáveis, possivelmente de tipos diferentes, colocadas juntas sob um único nome.  
+
+Quando se declara uma estrutura de dados criamos um tipo de variável composta onde os membros são definidos pelo usuário. Assim, podemos dizer que estamos criando um "novo tipo de variável". Isso porque o usuário tem total flexibilidade para declarar qualquer tipo de variável como "membro" da estrutura juntando-o para uma finalidade especifica.  
