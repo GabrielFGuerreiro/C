@@ -883,3 +883,445 @@ else
 
 }
 #endif //ex3
+
+
+#ifdef ex4
+/*Escreva um programa para o controle de mercadorias em uma dispensa domestica.
+Para cada produto sera' armazenado um codigo numerico, nome do produto e quantidade atual numa estrutura de dados.
+A unica estrutura de dados deve ser declarada como variavel LOCAL na funcao main().
+Escreva os itens das mercadorias direto no arquivo. (utilize a funcao fseek quando necessario).
+NAO pode usar vetor de estruturas. Utilize ponteiros.
+    O programa deve ter as seguintes opcoes: (cada opcao do menu e' um funcao)
+    1 - inclui produtos
+    2 - listar todos os produtos
+    3 - pesquisar uma mercadoria pela descrição
+    4 - listar os produtos não disponíveis.
+    5 - alterar a quantidade atual
+    6 - altera produtos
+    7 - exclui produtos
+    8 - saida*/
+
+
+struct infos{char nome[15];int codig;int quant};
+
+
+entrada(struct infos *pmerc,FILE *arq,int *pcont);
+listar(struct infos *pmerc,FILE *arq);
+pesquisar_prod(struct infos *pmerc,FILE *arq);
+prod_dispo(struct infos *pmerc,FILE *arq);
+alterar_quant(struct infos *pmerc,FILE *arq);
+alterar_prod(struct infos *pmerc,FILE *arq);
+excluir(struct infos *pmerc,FILE *arq);
+saida();
+
+main()
+{
+static struct infos mercadorias;
+struct infos *pmerc;
+pmerc=&mercadorias;
+
+FILE *arq;
+
+char menu;
+
+int cont=1;
+int *pcont;
+pcont=&cont;
+
+while(1){
+setlocale(LC_ALL,"");
+printf("            Menu\n\n 1 - Incluir produtos\n 2 - Listar produtos\n 3 - Pesquisar um produto pelo nome\n");
+printf(" 4 - Listar produtos não disponíveis\n 5 - Alterar quantidade atual\n 6 - Alterar produto\n 7 - Excluir produto\n 8 - Encerrar programa\n");
+printf("\nDigite sua opção\n");
+scanf(" %c",&menu);
+
+
+switch(menu)
+{
+
+case '1':
+
+    system("cls");
+    entrada(pmerc,arq,pcont);
+    *pcont=*pcont+1;
+
+    break;
+
+case '2':
+
+    system("cls");
+    listar(pmerc,arq);
+
+    break;
+
+case '3':
+
+    system("cls");
+    pesquisar_prod(pmerc,arq);
+
+    break;
+
+case '4':
+
+    system("cls");
+    prod_dispo(pmerc,arq);
+
+    break;
+
+case '5':
+
+    system("cls");
+    alterar_quant(pmerc,arq);
+
+    break;
+
+case '6':
+
+    system("cls");
+    alterar_prod(pmerc,arq);
+
+    break;
+
+case '7':
+
+    system("cls");
+    excluir(pmerc,arq);
+
+    break;
+
+case '8':
+
+    system("cls");
+    saida();
+
+    break;
+
+default:
+
+    system("cls");
+    printf("Voce escolheu uma opcao invalida\n");
+
+    break;
+}
+
+}
+
+}
+
+
+
+entrada(struct infos *pmerc,FILE *arq,int *pcont)
+{
+
+printf("[%dº Produto]\n",*pcont);
+printf("\nDigite o nome do produto:");
+scanf(" %s",&pmerc->nome);
+
+printf("\nDigite o código do produto:");
+scanf("%d",&pmerc->codig);
+
+printf("\nDigite a quantidade do produto:");
+scanf("%d",&pmerc->quant);
+
+
+printf("\n");
+
+
+arq=fopen("Produtos.txt","a");
+
+if(arq==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+fwrite(pmerc,sizeof(*pmerc),1,arq);
+
+fclose(arq);
+}
+
+
+
+
+listar(struct infos *pmerc,FILE *arq)
+{
+
+if((arq=fopen("Produtos.txt","r"))==NULL)
+{
+    printf("Erro na abertura do arquivo \n");
+    exit(0);
+}
+
+int i;
+
+for(i=0;fread(pmerc,sizeof(*pmerc),1,arq)!=0;i++)
+{
+    printf("Nome do produto: %s\n",pmerc->nome);
+    printf("Código do produto: %d\n",pmerc->codig);
+    printf("Quantidade do produto: %d\n",pmerc->quant);
+}
+
+fclose(arq);
+}
+
+
+
+
+pesquisar_prod(struct infos *pmerc,FILE *arq)
+{
+int cont=0,i=0,x=0;
+char z[15];
+
+printf("Pesquise o produto pelo nome\n");
+scanf("%s",z);
+
+if((arq=fopen("Produtos.txt","r"))==NULL)
+{
+    printf("Erro ao abrir o arquivo\n");
+    exit(0);
+}
+
+for(cont=0;fread(pmerc,sizeof(*pmerc),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pmerc).nome[i])
+            break;
+    }
+
+if(z[i]=='\0' && pmerc->nome[i]=='\0')
+{
+    printf("Nome:%s\n",pmerc->nome);
+    printf("Código:%d\n",pmerc->codig);
+    printf("Quantidade:%d\n",pmerc->quant);
+    return 0;
+}
+
+}
+
+if(x!=1)
+{
+printf("\nNome inexistente\n");
+}
+
+fclose(arq);
+}
+
+
+
+prod_dispo(struct infos *pmerc,FILE *arq)
+{
+int cont=0,i=0,x=0;
+
+if((arq=fopen("Produtos.txt","r"))==NULL)
+{
+    printf("Erro ao abrir o arquivo\n");
+    exit(0);
+}
+
+for(cont=0;fread(pmerc,sizeof(*pmerc),1,arq)!=0;cont++)
+{
+    while(fread(pmerc,sizeof(*pmerc),1,arq)!=0)
+    {
+        if(pmerc->quant!=0)
+            break;
+    }
+
+    if(pmerc->quant==0)
+    {
+        printf("Nome:%s\n",pmerc->nome);
+        printf("Código:%d\n",pmerc->codig);
+        printf("Quantidade:%d\n",pmerc->quant);
+        x=1;
+    }
+}
+
+if(x!=1)
+{
+    printf("Não há produtos indisponíeveis\n");
+}
+
+fclose(arq);
+}
+
+
+
+
+
+alterar_quant(struct infos *pmerc,FILE *arq)
+{
+int cont,i,x=0,y=0,j;
+char z[15];
+
+printf("Pesquise o produto pelo nome para alterar a quantidade\n");
+scanf("%s",z);
+
+if((arq=fopen("Produtos.txt","r+"))==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+for(cont=0;fread(pmerc,sizeof(*pmerc),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pmerc).nome[i])
+            break;
+    }
+
+    if(z[i]=='\0' && (*pmerc).nome[i]=='\0')
+    {
+         j=pmerc->quant;
+        printf("\nDigite a alteração na quantidade:");
+        scanf("%d",&pmerc->quant);
+
+        pmerc->quant=pmerc->quant+j;
+
+        y=cont*sizeof(*pmerc);
+        fseek(arq,y,0);
+
+        //((*pmerc).quant)=((*pmerc).quant+x);
+        x=1;
+
+        fwrite(pmerc,sizeof(*pmerc),1,arq);
+        break;
+    }
+}
+fclose(arq);
+
+if(x!=1)
+{
+    printf("\nNome inexistente\n");
+}
+
+}
+
+
+
+alterar_prod(struct infos *pmerc,FILE *arq)
+{
+int cont,i,x,y;
+char z[15];
+
+printf("Pesquise o produto pelo nome para alterar as informações\n");
+scanf("%s",z);
+
+if((arq=fopen("Produtos.txt","r+"))==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+for(cont=0;fread(pmerc,sizeof(*pmerc),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pmerc).nome[i])
+            break;
+    }
+
+    if(z[i]=='\0' && (*pmerc).nome[i]=='\0')
+    {
+        printf("\nDigite o novo nome do produto:");
+        scanf("%s",&pmerc->nome);
+
+        printf("\nDigite o novo código do produto:");
+        scanf("%d",&pmerc->codig);
+
+        printf("\nDigite a nova quantidade do produto:");
+        scanf("%d",&pmerc->quant);
+        x=1;
+
+        y=cont*sizeof(*pmerc);
+        fseek(arq,y,0);
+        fwrite(pmerc,sizeof(*pmerc),1,arq);
+        break;
+    }
+}
+fclose(arq);
+
+if(x!=1)
+{
+    printf("\nNome inexistente\n");
+}
+
+}
+
+
+
+
+excluir(struct infos *pmerc,FILE *arq)
+{
+int cont,i,x=0,y;
+char z[15];
+
+printf("Pesquise o contato pelo nome para excluir o registro\n");
+scanf("%s",z);
+
+if((arq=fopen("Produtos.txt","r+"))==NULL)
+{
+    printf("Arquivo inexistente\n");
+    exit(0);
+}
+
+for(cont=0;fread(pmerc,sizeof(*pmerc),1,arq)!=0;cont++)
+{
+    for(i=0;z[i]!='\0';i++)
+    {
+        if(z[i]!=(*pmerc).nome[i])
+            break;
+    }
+
+    if(z[i]=='\0' && (*pmerc).nome[i]=='\0')
+    {
+        pmerc->nome[0]='\0';
+        pmerc->codig=0;
+        pmerc->quant=0;
+
+        x=1;
+
+        y=cont*sizeof(*pmerc);
+        fseek(arq,y,0);
+        fwrite(pmerc,sizeof(*pmerc),1,arq);
+        printf("Registro excluido com sucesso!\n");
+        break;
+    }
+}
+fclose(arq);
+
+if(x!=1)
+{
+    printf("\nNome inexistente\n");
+}
+
+}
+
+
+
+saida()
+{
+
+char resp;
+
+do
+{
+printf("Deseja encerrar o programa?(S/N)\n");
+resp=getch();
+if(resp!='s' && resp!='S' && resp!='n' && resp!='N')
+    {
+        printf("Valor inválido\n");
+    }
+}while(resp!='s' && resp!='S' && resp!='n' && resp!='N');
+
+
+if(resp=='S' || resp=='s')
+    {
+        printf("\nAté logo!\n");
+        exit(0);
+    }
+else
+    system("cls");
+}
+
+#endif // ex4
