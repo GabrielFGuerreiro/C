@@ -720,3 +720,38 @@ sizeof(nome da variável)      calcula o número de bytes da variável
 Estrutura é uma variável composta, formada por uma ou mais variáveis, possivelmente de tipos diferentes, colocadas juntas sob um único nome.  
 
 Quando se declara uma estrutura de dados criamos um tipo de variável composta onde os membros são definidos pelo usuário. Assim, podemos dizer que estamos criando um "novo tipo de variável". Isso porque o usuário tem total flexibilidade para declarar qualquer tipo de variável como "membro" da estrutura juntando-o para uma finalidade especifica.  
+
+### Declaração de estruturas
+O formato geral para a declaração de um estrutura é:  
+
+struct <nome_estrutura>  
+    {        chave de abertura da estrutura  
+
+    membros;  
+
+    };      chave de fechamento da estrutura  
+
+Na declaração da estrutura de dados temos a palavra reservada "struct" mais o "nome da estrutura" que define o "novo tipo da variável" criada pelo usuário. Na declaração dos "membros" da estrutura define-se as variáveis, que podem ser do tipo char, int , float, long, vetor, estrutura, etc.., que irao compor este "novo tipo de variável".  
+
+Quando a estrutura de dados é declarada, ainda não foi criada a variável propriamente dita (reservado espaço em memoria). Fazendo uma analogia com a declaração das variáveis simples:  
+
+Declarando uma variável simples:  
+          <tipo> <nome_variável>;  
+
+Declarando uma variável composta do tipo estrutura de dados:  
+          struct <nome da estrutura> <nome da variável>;  
+                          (tipo)  
+Exemplo:  
+
+- variável simples  
+       int notas;     variável do tipo "int" de nome "notas"  
+      
+- variável do tipo estrutura de dados  
+
+struct tipos        "novo tipo de variável" definida pelo usuário  
+    {  
+    int a;  
+    float b;  
+    long c;  
+    };  
+struct tipos números;      variável do tipo "struct tipos" de nome "números"  
