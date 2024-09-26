@@ -814,3 +814,6 @@ Para acessar os "membros" de uma estrutura de dados dentro de outra estrutura de
                                       estruct externa          estruct interna  
 
 Para se inicializar uma estrutura de dados dentro de outra estrutura de dados é preciso ser global ou static local.  
+
+### Vetores como variável dentro de uma estruturas de dados
+Uma estrutura pode ser composta por variáveis simples (int, float, long, ...) e variáveis compostas (vetores, estruturas). Neste caso, pode-se declarar um vetor como "membro" de uma estrutura. O formato para declarar um vetor como "membro" de uma estrutura é o mesmo.
