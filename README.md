@@ -805,3 +805,12 @@ calendario.dia=26;       /*inicialização  elemento por elemento */
 calendario.mes=1;  
 calendario.ano=1839;  
 }  
+
+### Estruturas dentro de estruturas
+Uma estrutura dentro de outra estrutura é uma variável composta dentro de outra variável composta.  
+Para acessar os "membros" de uma estrutura de dados dentro de outra estrutura de dados usa-se o operador ponto(.), partindo-se da variável mais externa para a variável mais interna:  
+
+<nome_variável>.<nome_variável>.<membro>;  
+                                      estruct externa          estruct interna  
+
+Para se inicializar uma estrutura de dados dentro de outra estrutura de dados é preciso ser global ou static local.  
