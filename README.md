@@ -764,3 +764,44 @@ Exemplo:
     números.a  
     números.b  
     números.c  
+
+
+### Inicialização de estruturas de dados
+Assim como nos vetores, uma estrutura de dados só pode ser inicializada se declarada como uma variável global ou static local.
+Porem se a inicialização  for elemento por elemento, a declaração da variável pode ser local. Exemplos:  
+1.  
+/* declaração do tipo de variável */  
+struct data {int dia;int mes;int ano;};    /* membros */  
+
+
+/* declaração da variável como global. Por isso pode ser inicializada */  
+struct data calendário = {7,9,1822};  
+
+
+main()  
+{  
+}    
+.----------------------------------------------------------------------------.  
+2.  
+/* declaração do tipo de variável */  
+struct data {int dia;int mes;int ano;};    /* membros */  
+
+main()  
+{  
+/* declaração da variável como estática local. Por isso pode ser inicializada */  
+static struct data calendário = {15,11,1889};  
+}  
+.----------------------------------------------------------------------------.  
+3.  
+/* declaração do tipo de variável */  
+struct data {int dia;int mes;int ano;};    /* membros */  
+
+main()  
+{  
+/* declaração da variável como local porem sem inicialização  */  
+struct data calendário;  
+
+calendario.dia=26;       /*inicialização  elemento por elemento */  
+calendario.mes=1;  
+calendario.ano=1839;  
+}  
