@@ -817,3 +817,15 @@ Para se inicializar uma estrutura de dados dentro de outra estrutura de dados é
 
 ### Vetores como variável dentro de uma estruturas de dados
 Uma estrutura pode ser composta por variáveis simples (int, float, long, ...) e variáveis compostas (vetores, estruturas). Neste caso, pode-se declarar um vetor como "membro" de uma estrutura. O formato para declarar um vetor como "membro" de uma estrutura é o mesmo.
+
+
+### Vetor de estruturas de dados
+Como já estudamos, um vetor se caracteriza por ter todos os seus elementos do mesmo tipo e acessar estes elementos por um índice. Com estrutura de dados não é diferente.  
+
+Fazendo analogia com um vetor, ele é composto por variáveis simples do tipo int, float long,... Na declaração de um vetor onde cada elemento é uma estrutura de dados nada muda, pois todos os elementos continuam sendo do mesmo tipo. O detalhe está no tipo da variável que neste caso é definida pelo usuário através da declaração de uma estrutura de dados.  
+
+Para declarar um vetor de estruturas de dados, deve-se primeiro definir a estrutura com seus "membros", "novo tipo de variável", e depois declarar um vetor deste tipo.  
+
+Aqui também para referenciar "membros" em um vetor de estrutura usa-se o "nome da variável" mais o "índice" do elemento do vetor e o operador ponto(.) para acessar o "membro" da estrutura de dados no seguinte formato:  
+
+                    <nome_variável>[<n. do elemento>].<membro>;    
