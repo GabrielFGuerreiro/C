@@ -828,4 +828,15 @@ Para declarar um vetor de estruturas de dados, deve-se primeiro definir a estrut
 
 Aqui também para referenciar "membros" em um vetor de estrutura usa-se o "nome da variável" mais o "índice" do elemento do vetor e o operador ponto(.) para acessar o "membro" da estrutura de dados no seguinte formato:  
 
-                    <nome_variável>[<n. do elemento>].<membro>;    
+                    <nome_variável>[<n. do elemento>].<membro>;  
+
+### Typedef
+A Linguagem C permite definir explicitamente "novos nomes" para os tipos de dados existentes usando-se a palavra reservada "typedef". Não se cria um novo tipo de variável, e sim se define um "novo nome" para um tipo que existem. O "typedef" também auxilia na documentação do programa permitindo definir nomes que descrevam melhor os tipos de dados padrões ou definidos pelo usuário (estruturas).  
+
+O formato geral é:  
+      typedef <tipo da variável> <novo nome do tipo da variável>;  
+
+Exemplo:  
+   typedef int inteiro;  
+   typedef float flutuante;  
+  
