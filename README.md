@@ -840,3 +840,20 @@ Exemplo:
    typedef int inteiro;  
    typedef float flutuante;  
   
+## Ponteiros ou Apontadores
+
+### Como funcionam os ponteiros?
+Ponteiro é uma variável que, diferentemente das outras, não contem o valor de um dado, mas aponta para o endereço de outra variável que o contem.  
+
+Quando você anota o endereço de um colega você está criando um ponteiro. O ponteiro é o pedaço de papel que tem anotado o endereço. Quando você anota o endereço de um colega, depois você vai usar este endereço para achá-lo. Na linguagem C funciona assim. Você anota o endereço de uma variável num ponteiro para depois usa-la.  
+
+Um ponteiro também tem tipo: o endereço de um amigo é diferente de do endereço de uma empresa. Apesar dos dois endereços terem o mesmo formato (rua, bairro, cidade) eles indicam locais de conteúdos diferentes. Então os dois endereços são ponteiros de tipos diferentes.  
+                          p                                f  
+                          --------------------------------->  
+                          |                                |  
+        -------------------------------------------------------------------  
+    ....| xxx | xxx | 308 |    ......    | xxx | xxx | ´i´ | xxx | ....  
+        -------------------------------------------------------------------  
+             $100  $101  $102                 $306  $307  $308  $309  
+
+Na figura acima, "p" é um ponteiro para a variável "f'. Ou seja, "p" contem o endereço de memoria onde está armazenada a variável "f".  
