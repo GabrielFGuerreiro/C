@@ -857,3 +857,44 @@ Um ponteiro também tem tipo: o endereço de um amigo é diferente de do endere�
              $100  $101  $102                 $306  $307  $308  $309  
 
 Na figura acima, "p" é um ponteiro para a variável "f'. Ou seja, "p" contem o endereço de memoria onde está armazenada a variável "f".  
+
+### Ponteiros para variáveis simples
+Na linguagem C quando declaramos ponteiros nos informamos ao compilador para que tipo de variável vamos aponta-lo. Um ponteiro int aponta para uma variável do tipo inteira, isto é, guarda o endereço de um inteiro.  
+
+O formato geral para a declaração de um ponteiro para variáveis simples é:  
+tipo *nome_variavel;  
+
+onde "tipo" indica o tipo da variável (int, char, estrutura, etc..) e "nome_variavel" é o nome da variável ponteiro.  
+Exemplos:  
+    char *pc;                    declara um ponteiro do tipo char de nome "pc"  
+    int *pi;                        declara um ponteiro do tipo int de nome "pi"  
+    float *pf;                     declara um ponteiro do tipo float de nome "pf"  
+    unsigned *pu;            declara um ponteiro do tipo unsigned de nome "pu"  
+
+Para atribuir diretamente o endereço da variável apontada, deve-se utilizar o operador de endereço "&" (E comercial) antes do nome da variável a ser apontada; isto indicará que se quer acessar o endereço da mesma e não seu conteúdo. O formato geral é:  
+ponteiro = &nome_variavel;  
+
+Olhando a figura inicial temos:  
+    p = &f;            atribui ao ponteiro "p" o end. da variavel "f".  
+                                       (atribui a "p" o endereco $308)  
+Exemplos:  
+a) Declaração de variáveis  
+    char a = 'p';  
+    int b = 700;  
+    float c = 9.777;  
+
+b) Atribuindo os endereços aos ponteiros;  
+pc = &a;              atribui ao ponteiro "pc" o end. da variavel "a".  
+pi = &b;               atribui ao ponteiro "pi" o end. da variavel "b".  
+pf = &c;               atribui ao ponteiro "pf" o end. da variavel "c".  
+
+Para se obter o valor armazenado numa variavel apontado pelo ponteiro, utiliza-se o operador de conteúdo "*" (asterisco). O formato geral é:  
+variavel = *ponteiro;  
+
+Olhando a figura inicial temos:  
+    k = *p;       atribui a "k" o conteúdo da variavel apontada por "p"  (conteúdo de "f" =  letra "i")  
+Exemplos:  
+c) Buscando os conteúdos das variáveis através dos seus ponteiros.  
+     w = *pc;              atribui à "w" o conteúdo da variavel "a" que é "p"  
+     x = *pi;                atribui à "x" o conteúdo da variavel "b" que é "700"  
+     y = *pf;                atribui à "y" o conteúdo da variavel "c" que é "9.777"  
